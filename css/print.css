@@ -1,0 +1,50 @@
+/*Hoja de estilos para impresión de tablas de zona dinámico y ngv's */
+.encabezado, .espaciador{
+	display: none;
+}
+
+.row {
+	width: 100%;
+	margin: 0;
+}
+
+.discos, .alabes, .ngvs {
+	width: 100%;
+	margin: 0;
+}
+
+.discos>.row, .alabes>.row, .ngvs>.row {
+	display: none;
+}
+
+.border-right-orange, .border-right-blue, .border-right-red {
+	margin: 0;
+	border: 0;
+}
+
+.table {
+	display: table;
+	font-size: 0.7em;
+}
+
+
+.contenedor-tablas {
+	max-height: none;
+}
+
+.suministrar {
+	display: none;
+}
+
+.encabezadodiscos, .encabezadoalabes, .encabezadongvs {
+	display: block;
+}
+
+h3 {
+
+	font-size: 1.2em;
+}
+
+img {
+	display: none;
+}

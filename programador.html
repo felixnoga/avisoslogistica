@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Programación</title>
+
+		<!-- Bootstrap CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="css/custom.css">
+		<!-- jQuery UI CSS -->
+		<link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.min.css">
+		<link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.theme.min.css">
+		<link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.structure.min.css">
+        <link rel="stylesheet" href="css/toastr.min.css">
+        <link rel="stylesheet" href="css/bootstrap-tour.min.css">
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+		<link rel="stylesheet" href="css/fileupload/jquery.fileupload.css">
+
+
+		<!-- HTML5 Shim and Respond.js IE8 soporte HTML5 y media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="js/html5shiv.min.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+	<div id="wrapper">
+	<div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li>
+                <button class="btn btn-danger" id="sidebar-toggler">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </button> <h4 style="color: #ecf0f1;">Programación Subconjuntos</h4>
+            </li>
+            <li>
+                <button class="btn btn-success refresh-programador" type="button">
+                    <span class="glyphicon glyphicon-refresh"></span>
+                </button>
+                <button class="btn home-programador btn-info"><i class="fa fa-home fa-1x"></i></button>
+                <button class="btn btn-default"><a class="nolink ayudaprogramador" href="help/manual.pdf" target="_blank" title="Manual de ayuda"><span class="ayuda glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></button>
+                <button class="btn btn-success iniciar-tour"><i class="fa fa-info-circle" aria-hidden="true"></i> Tour de ayuda</button>
+
+            </li>
+            <li>
+                <form class="dialog-programador" enctype="multipart/from-data">
+                    <div class="form-group programador-tipos"></div>
+                    <hr/>
+                    <div class="form-group opciones">
+                        <label for="etapa-programador">Etapa:</label>
+                        <select name="etapa-programador">
+                            <option value="" class="vacio"></option>
+                            <option value="LP1">LP1</option>
+                            <option value="LP2">LP2</option>
+                            <option value="LP3">LP3</option>
+                            <option value="LP4">LP4</option>
+                            <option value="LP5">LP5</option>
+                            <option value="LP6">LP6</option>
+                        </select>
+                        <br/>
+                        <input type="checkbox" id="add_todas" name="todas_etapas" value="todas_etapas">Añadir todas las etapas para un nameplate.
+
+                    </div>
+                    <hr/>
+                    <div class="form-group">
+                        <label for="nameplate">Serial Number:</label>
+                        <input type="text" class="form-control" id="nameplate-programador" name="nameplate-programador" placeholder="Introduce Serial Number">
+                    </div>
+              
+                    <div class="form-group botones-form-programador">
+                        <button class="btn btn-default enviar-programador">OK</button>
+                        <button class="btn btn-warning limpiar-programador">CANCELAR</button>
+                    </div>
+                </form>
+                <li>
+                </li>
+                <form class="subir-faltantes" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="excel-faltantes">Subir Excel Faltantes:</label>
+                        <input type="file" class="form-control" id="excel-faltantes" name="excel-faltantes">
+                        <button type="submit" class="btn btn-primary" id="subir-faltantes">Subir</button>
+                    </div>                 
+                	
+                </form>
+            </li>
+        </ul>
+	</div>
+        <div id="wrapper-contents">
+            <div class="container"><h3 class="titulo-no-suministrados">Programación logística zona subconjuntos</h3></div>
+
+
+	<div class="container resultados"></div>
+
+	<div class="container-fluid encabezado-suministrados">
+
+		<div class="container">
+		<h3 class="titulo-suministrados">Ultimos juegos suministrados</h3>
+		<hr />
+		
+		<div class="suministrados"></div>
+		</div>
+	</div>
+        </div>
+	</div>
+
+
+
+	<!--DIALOG BOXES -->
+
+	<!--MODAL ENVIANDO EXCEL-->
+	<div class="modal fade" tabindex="-1" id="modal-excel" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+
+				<div class="modal-body">
+					<p class="text-center">Trabajando...</p>
+					<p class="text-center"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></p>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!--DIALOG NO STOCK ALABES-->
+	<div id="nostockalabes" style="display: none">
+		<p>Poner juego de álabes como no disponibles (sin stock en almacén)</p>
+		<hr />
+		<button class="btn btn-danger setnostock">SIN STOCK</button>
+		<button class="btn btn-default closenostock">CANCELAR</button>
+	</div>
+
+	<!--DIALOG NO STOCK DISCO-->
+	<div id="nostockdisco" style="display: none">
+		<p>Poner disco como no disponible (sin stock en almacén)</p>
+		<hr />
+		<button class="btn btn-danger setnostock" type="submit">SIN STOCK</button>
+		<button class="btn btn-default closenostock" type="submit">CANCELAR</button>
+	</div>
+
+	<!--DIALOG HAY STOCK ALABES-->
+	<div id="sistockalabes" style="display: none">
+		<p>Poner juego de álabes como disponibles (ha llegado stock a almacén)</p>
+		<hr />
+		<button class="btn btn-success setstock">AGREGAR A STOCK</button>
+		<button class="btn btn-default closenostock">CANCELAR</button>
+	</div>
+
+	<!--DIALOG HAY STOCK DISCO-->
+	<div id="sistockdisco" style="display: none">
+		<p>El disco ya se encuentra en stock (ha llegado a almacén)</p>
+		<hr />
+		<button class="btn btn-success setstock" type="submit">AGREGAR A STOCK</button>
+		<button class="btn btn-default closenostock" type="submit">CANCELAR</button>
+	</div>	
+	
+	<!--DIALOG BORRAR PROGRAMA-->
+	<div id="borrarprograma" style="display: none">
+		<p class="text-center"><i class="error fa fa-warning fa-2x"></i></p>
+		<p>¿Deseas borrar el juego de álabes y disco?</p>
+		<hr />
+	</div>	
+	<!--DIALOG YA SE HAN SUMINISTRADO AL BORRAR-->
+	<div id="yasuministrado" style="display: none">
+		<p class="text-center"><i class="error fa fa-exclamation-circle fa-2x"></i></p>
+		<p><strong>NOTA:</strong> alguna de las partes de este nameplate y etapa se han suministrado ya por parte de almacén.</p>
+		<p>¿Deseas continuar? (este paso no confirma la eliminación. La confirmación se hará en el siguiente paso)</p>
+		<hr />
+	</div>	
+
+	<!--DIALOG YA EXISTE EL JUEGO-->
+	<div id="yaexiste" style="display: none">
+		<p class="text-center"><i class="error fa fa-exclamation-circle fa-2x"></i></p>
+		<p>El juego que has añadido ya existe.</p>
+	</div>	
+
+	<!--DIALOG AÑADIR TODAS LAS ETAPAS DE UNA VEZ-->
+	<div id="dialogtodas" style="display: none">
+		<p class="text-center"><i class="error fa fa-exclamation-circle fa-2x"></i></p>
+		<p>¿Quieres añadir todas las etapas para este nameplate?</p>
+		<p class="bg-warning">NOTA: las etapas ya existentes en la programación no se añadirán.</p>
+	</div>			
+
+	<!--DIALOG QUITAR SUMINISTRO-->
+	<div id="quitarsuministro" style="display: none">
+		<p class="text-center"><i class="error fa fa-exclamation-circle fa-2x"></i></p>
+		<p>¿Deseas poner esta pieza como "no suministrada" de nuevo?</p>
+		<p>Esto hará que la pieza aparezca de nuevo en la pantalla de almacén para suministrarse.</p>
+		<hr />
+		<p>¿Deseas quitar también esta pieza del buffer? (se liberará un hueco)</p>
+		<div class="radio">
+  			<label>
+   				 <input type="radio" name="optionsRadios" id="si" value="si" checked>
+   				 SI
+  			</label>
+		</div>
+		<div class="radio">
+  			<label>
+    			<input type="radio" name="optionsRadios" id="no" value="no">
+    			NO
+  			</label>
+		</div>
+	</div>	
+
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+        <script src="js/toastr.min.js"></script>
+		<script src="js/programador.js"></script>
+		<script src="js/bootstrap-tour.min.js"></script>
+		<script src="js/tour.js"></script>
+		<script src="js/jQuery.form.js"></script>
+		<script src="js/fileupload/jquery.iframe-transport.js"></script>
+		<!-- The basic File Upload plugin -->
+		<script src="js/fileupload/jquery.fileupload.js"></script>
+		<!-- The File Upload processing plugin -->
+		<script src="js/fileupload/jquery.fileupload-process.js"></script>		
+
+	</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Almacén Zona IP</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.min.css">
+    <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.structure.min.css">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+    <script src="js/almacenip.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 soporte HTML5 y media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container-fluid encabezado">
+        <h2 class="text-center pull-left titulo">Suministros zona IP</h2>
+        <div class="pull-right menu-almacen">
+            <a class="btn btn-almacen" href="almacen.html">DINÁMICO / NGV'S</a>
+            <a href="almacen-ip.html" class="btn disabled btn-almacen-activo" id="noopacity">ZONA IP</a>
+            <button class="btn btn-success refresh" type="button"><span class="glyphicon glyphicon-refresh"></span></button>
+            <a href="index.html" class="btn btn-info nolink"><i class="fa fa-home fa-1x"></i></a>
+            <a class="nolink" href="help/manual.pdf" target="_blank" title="Manual de ayuda"><span class="ayuda glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>            
+        </div>
+    </div>
+    <div class="espaciador">&nbsp</div>
+    <div class="container-fluid">
+        <div class="row conmargen">
+            <div class="col-sm-3 col-sm-offset-1 escariado">
+                <div class="encabezado-escariado">
+                    <h4 class="text-center">ESCARIADO (DISCO/EJE IP)</h4>
+                </div>
+                <div class="escariado-resultados">
+                    <div class="escariado-cajas"></div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 support">
+                <div class="encabezado-support">
+                    <h4 class="text-center">HP/IP SUPPORT</h4>
+                </div>
+                <div class="support-resultados">
+                  <div class="support-cajas"></div>  
+                </div>
+                
+
+            </div>              
+
+            <div class="col-sm-3 caseip">
+                <div class="encabezado-caseip">
+                    <h4 class="text-center">CARCASA IP</h4>
+                </div>
+                <div class="caseip-resultados">
+                    <div class="caseip-cajas"></div>
+                </div>
+                
+
+            </div>            
+        </div>
+        <div class="row conmargen">
+            <div class="col-sm-3 col-sm-offset-1 ngvlp1">
+                <div class="encabezado-ngvlp1">
+                    <h4 class="text-center">NGV'S LP1</h4>
+                </div>
+                <div class="ngvlp1-resultados">
+                    <div class="ngvlp1-cajas"></div>
+                </div>
+                
+            </div>   
+            <div class="col-sm-3 ngvip">
+                <div class="encabezado-ngvip">
+                    <h4 class="text-center">NGV'S IP</h4>
+                </div>
+                <div class="ngvip-resultados">
+                    <div class="ngvip-cajas"></div>
+                </div>
+
+            </div>
+            <div class="col-sm-3 alabeip">
+                <div class="encabezado-alabeip">
+                    <h4 class="text-center">ÁLABES IP</h4>
+                </div>
+                <div class="alabeip-resultados">
+                    <div class="alabeip-cajas"></div>
+                </div>
+                
+
+            </div>                                    
+        </div>
+    </div>
+
+    <div class="suministrarescariado" style="display: none">
+        <h4>Suministrar disco y eje de IP.</h4>
+        <p>¿Deseas realizar el suministro a escariado?<p>
+    </div>
+
+    <div class="suministrarsupport" style="display: none">
+        <h4>Suministrar soporte HP/IP.</h4>
+        <p>¿Deseas realizar el suministro del soporte HP/IP?<p>
+    </div>    
+    <div class="suministrarcase" style="display: none">
+        <h4>Suministrar Carcasa IP.</h4>
+        <p>¿Deseas realizar el suministro de la carcasa de IP?<p>
+    </div> 
+    <div class="suministrarngvlp1" style="display: none">
+        <h4>Suministrar NGV LP1.</h4>
+        <p>¿Deseas realizar el suministro de los NGV'S LP1?<p>
+    </div>   
+
+    <div class="suministrarngvip" style="display: none">
+        <h4>Suministrar NGV IP.</h4>
+        <p>¿Deseas realizar el suministro de los NGV'S IP?<p>
+    </div>   
+    <div class="suministraralabeip" style="display: none">
+        <h4>Suministrar ÁLABES IP.</h4>
+        <p>¿Deseas realizar el suministro de los ÁLABES IP?<p>
+    </div>           
+</body>
+</html>

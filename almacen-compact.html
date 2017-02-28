@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Almacén</title>
+
+		<!-- Bootstrap CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="css/compact.css">
+		<link rel="stylesheet" type="text/css" href="css/print.css" media="print">
+		<!-- jQuery UI CSS -->
+		<link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.min.css">
+		<link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.theme.min.css">
+		<link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.structure.min.css">
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+		<script src="js/compact.js"></script>
+
+		<!-- HTML5 Shim and Respond.js IE8 soporte HTML5 y media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="js/html5shiv.min.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container-fluid encabezado">
+			<h2 class="text-center pull-left titulo">Suministros zona Dinámico y NGV'S</h2>
+			<div class="pull-right menu-almacen">
+				<a class="btn btn-almacen-activo disabled" id="noopacity" href="almacen.html">DINÁMICO / NGV'S</a>
+				<a href="almacen-compact-ip.html" class="btn btn-almacen">ZONA IP</a>
+				<button class="btn btn-success refresh" type="button"><span class="glyphicon glyphicon-refresh"></span></button>
+				<a href="index.html" class="btn btn-info nolink"><i class="fa fa-home fa-1x"></i></a>
+				<a class="nolink" href="help/manual.pdf" target="_blank" title="Manual de ayuda"><span class="ayuda glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+				<a class="nolink" href="help/Guia_rapida.pdf" target="_blank" title="Guía inicio rápido"><span class="ayuda glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
+			</div>
+		</div>	
+		<div class="espaciador">&nbsp</div>
+	
+		<div class="container-fluid">
+			
+				<div class="col-sm-4 discos border-right-blue min-height-700">
+					<h3 id="encabezadodiscos"><img src="img/disc.png" /><strong>SUMINISTRO DISCOS</strong><span class="pull-right deshacer-discos glyphicon glyphicon-repeat" aria-hidden="true"></span></h3>
+					<div class="contenedor-tablas">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th>NAMEPLATE</th>
+									<th>DISCO</th>
+									<th>TIPO MOTOR</th>									
+								</tr>
+							</thead>
+							<tbody class="resultadosdiscos">
+							</tbody>
+						</table>
+					</div>
+					<div class="row">
+						<div class="col-sm-12 min-height-100">
+						<h4>DISCOS EN BUFFER&nbsp<span class="glyphicon glyphicon-plus-sign adddisco" aria-hidden="true"></span></h4>
+							<div class="bufferdiscos">
+
+					
+							</div>	
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12 min-height-100">
+						<h4>CAJAS VACIAS DISCOS <a href="#" class="btn btn-info btn-xs limpia-discos"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>LIMPIAR</a></h4>
+							<div class="cajasvacias-discos">
+					
+							</div>	
+						</div>						
+					</div>
+				</div>
+			
+			
+				<div class="col-sm-4 alabes border-right-red min-height-700" >
+					<h3 id="encabezadoalabes"><img src="img/blade.png" /><strong>SUMINISTRO ÁLABES</strong><span class="pull-right deshacer-alabes glyphicon glyphicon-repeat" aria-hidden="true"></span></h3>
+					<div class="contenedor-tablas">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th>NAMEPLATE</th>
+									<th>ALABES</th>
+									<th>TIPO MOTOR</th>									
+								</tr>
+							</thead>
+							<tbody class="resultadosalabes">
+							</tbody>
+						</table>
+					</div>
+					<div class="row">
+						<div class="col-sm-12 min-height-100">
+							<h4>ALABES EN BUFFER&nbsp<span class="glyphicon glyphicon-plus-sign addalabes" aria-hidden="true"></span></h4>
+							<div class="bufferalabes"></div>
+						</div>
+					</div>
+					<div class="row">	
+						<div class="col-sm-12 min-height-100">
+							<h4>CAJAS VACIAS ALABES <a href="#" class="btn btn-danger btn-xs limpia-alabes"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>LIMPIAR</a></h4>
+							<div class="cajasvacias-alabes"></div>	
+						</div>							
+					</div>
+				</div>			
+			
+
+			
+				<div class="col-sm-4 ngvs border-right-orange min-height-700">
+					<h3 id="encabezadongvs"><strong>SUMINISTRO NGV'S</strong></h3>
+					<div class="contenedor-tablas">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th>NAMEPLATE</th>
+									<th>ETAPA</th>
+									<th>DIA-HORA PETICIÓN</th>									
+								</tr>
+							</thead>
+							<tbody class="resultadosngvs">
+							</tbody>
+						</table>
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-12 min-height-100">
+							<h4>NGV'S EN BUFFER&nbsp<span class="glyphicon glyphicon-plus-sign addngv" aria-hidden="true"></span></h4>
+							<div class="bufferngvs"></div>
+						</div>
+					</div>
+					<div class="row">	
+						<div class="cajasvacias-ngvs col-sm-12 min-height-100">
+							<h4>CAJAS VACIAS DE NGV'S <a href="#" class="btn btn-warning btn-xs limpia-ngvs"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>LIMPIAR</a></h4>
+
+
+						</div>
+					</div>					
+				</div>
+			
+		</div>	
+
+		<!--DIALOGS -->
+		<div class="bufferdiscoslleno" style="display: none">
+			<h4>Zona de discos llena</h4>
+			<p>Comprueba el buffer de discos, es posible que ya esté lleno.<p>
+		</div>
+		<div class="bufferalabeslleno" style="display: none">
+			<h4>Zona de álabes llena</h4>
+			<p>Comprueba el buffer de álabes, es posible que ya esté lleno.<p>
+		</div>	
+		<div class="bufferngvslleno" style="display: none">
+			<h4>Zona de ngvs llena</h4>
+			<p>Comprueba el buffer de ngvs, es posible que ya esté lleno.<p>
+		</div>		
+		<div class="setstockalabes" style="display: none">
+			<h4>Poner en stock álabes</h4>
+			<p>¿Deseas poner en stock este juego de álabes?<p>
+		</div>		
+		<div class="setstockdiscos" style="display: none">
+			<h4>Poner en stock disco</h4>
+			<p>¿Deseas poner en stock este disco?<p>
+		</div>
+		<div class="limpiarvaciasngvs" style="display: none">
+			<h4>Limpiar cajas vacias de NGV'S</h4>
+			<p>¿Deseas retirar las cajas vacías de NGV's?<p>
+		</div>	
+		<div class="limpiarvaciasalabes" style="display: none">
+			<h4>Limpiar cajas vacias de álabes.</h4>
+			<p>¿Deseas retirar las cajas vacías de álabes?<p>
+		</div>	
+		<div class="limpiarvaciasdiscos" style="display: none">
+			<h4>Limpiar cajas vacias de la zona de discos.</h4>
+			<p>¿Deseas retirar las cajas vacías de la zona de discos?<p>
+		</div>	
+		<div class="deshacerDiscos" style="display: none">
+			<h4>Deshacer última operación de suministro</h4>
+			<p>¿Deseas revertir el último suministro de disco realizado?<p>
+		</div>	
+		<div class="deshacerAlabes" style="display: none">
+			<h4>Deshacer última operación de suministro</h4>
+			<p>¿Deseas revertir el último suministro de álabes realizado?<p>
+		</div>																	
+	</body>
+</html>

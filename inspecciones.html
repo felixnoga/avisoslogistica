@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Avisos</title>
+		<link rel="stylesheet" href="css/custom.css">
+		
+		<link href="jquery-ui-1.11.4.custom/jquery-ui.min.css" rel="stylesheet">
+		<link href="jquery-ui-1.11.4.custom/jquery-ui.structure.min.css" rel="stylesheet">
+		<link href="jquery-ui-1.11.4.custom/jquery-ui.theme.min.css" rel="stylesheet">
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<link rel="shortcut icon" href="favicon.ico">
+
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+		<!-- Bootstrap JavaScript -->
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+		
+		<script src="js/inspecciones.js"></script>
+
+		<!-- HTML5 Shim and Respond.js IE8 soporte para HTML5 y media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="js/html5shiv.min.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container-fluid titulo-inspecciones">
+			<div class="infoversion hidden-xs"><a href="#" id="version"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Version 3.0</a>&nbsp|&nbsp<a href="index.html"><span class="glyphicon glyphicon-home"></span></a></div>
+			<h1 class="text-center titulo-avisos">Avisos de inspección</h1>
+		</div>
+
+		<div class="container">
+			<div class="pendientes">
+				<h3 class="text-primary">INSPECCIONES PENDIENTES O EN CURSO</h3>
+				<hr>
+				<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>PUESTO</th>
+							<th>INSPECCIÓN</th>
+							<th>FITTER</th>
+							<th>NAMEPLATE</th>
+							<th>O.F.</th>
+							<th>HORA DE AVISO</th>
+							<th>HORA INICIO</th>
+							<th>HORA FIN</th>
+							<th>INSPECTOR</th>
+							<th>ACCIONES</th>
+						</tr>
+					</thead>
+					<tbody class="tabla1">
+					</tbody>
+				</table>
+				</div>
+			</div>
+
+			<div class="finalizadas">
+
+			<h3 class="text-primary">INSPECCIONES FINALIZADAS</h3>
+			<hr>
+
+			<div class="panel panel-default">
+	    		<div class="panel-heading" role="tab" id="headingOne">
+
+	     			<h4 class="panel-title pull-left">
+	       				<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+	       					<span class="glyphicon glyphicon-chevron-up pull-left"></span>
+	       				</a>
+	       			</h4>
+ 					<div class="btn-group pull-left" id="btn-exportar">
+ 						 <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+ 						 	<i class="fa fa-sign-in"></i> Exportar<span class="caret"></span>
+ 						 </button>
+ 						 <ul class="dropdown-menu" role="menu">
+   							<li><a id="excel" href="#">Exportar a Excel &nbsp;<i class="fa fa-file-excel-o fa-2x" id="icono-excel"></i></a></li>
+   							<li class="divider"></li>
+  							<li><a id="pdf" href="#">Exportar a PDF &nbsp;<i class="fa fa-file-pdf-o fa-2x" id="icono-pdf"></i></a></li>
+  						</ul>  						
+					</div>
+ 					<button type="submit" class="activaCalendario btn btn-default btn-sm pull-right">Consultar otras fechas</button>
+ 					<div class="otrafecha pull-right form-inline">
+ 					<input type="text" id ="campofecha" class="form-control" placeholder="Otras fechas..." autocomplete="off"></input>
+	       			<button type="submit" class="verfecha btn btn-default">Ir</button>
+	       			</div>
+	       			<div class="clearfix"></div>
+
+	       			
+	    		</div>
+	    		<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+	      			<div class="panel-body">
+						<div class="table-responsive">
+						<table class="table table-striped table-hover">
+							<thead>
+								<tr>
+									<th>PUESTO</th>
+									<th>INSPECCIÓN</th>
+									<th>FITTER</th>
+									<th>NAMEPLATE</th>
+									<th>HORA DE AVISO</th>
+									<th>HORA INICIO</th>
+									<th>HORA FIN</th>
+									<th>INSPECTOR</th>
+									
+								</tr>
+							</thead>
+							<tbody class="tabla2">
+								
+							</tbody>
+						</table>
+						</div>       
+	      			</div>
+	   			 </div>
+	  		</div>
+
+	  		</div>
+
+  		<!--div del JQUERY DIALOG INSPECCIÓN OCUPADA con display none-->
+  		<div id="ocupado" style="display: none">
+  			<p><span class="glyphicon glyphicon-info-sign"></span> Esta inspección ya está iniciada o finalizada.</p>
+  			<p>Por favor, selecciona otra de la tabla</p>
+  		</div>
+
+  		<!--div del JQUERY DIALOG INSPECTORES con display none-->
+  		<div id="inspector" style="display: none">
+  			<p><span class="glyphicon glyphicon-info-sign"></span> Nombre inspector:</p>
+  			<select id="inspectores" autocomplete="off">
+  				
+  			</select>
+  		</div>  
+
+  		<!--div del JQUERY DIALOG FINALIZAR INSPECCIÓNcon display none-->
+  		<div id="finalizar" style="display: none">
+			<p><i class="fa fa-exclamation-triangle fa-2x"></i></p>
+			<hr>
+  			<p>Finalizar inspección:</p>
+  		</div>
+  		<div id="prueba"></div>
+
+  		<!--div del JQUERY DIALOG DESHACER display none-->
+  		<div id="des" style="display: none">
+			<p class="text-center"><i class="fa fa-undo fa-2x"></i></p>
+			<hr>
+  			<p>¿Deshacer el inicio de inspección para <span id="inspector"></span>? La inspección volverá a estar sin iniciar.</p>
+  		</div>
+
+		<!--div del JQUERY DIALOG INFO VERSION display none-->
+  		<div id="dialog_version" style="display: none">
+			<p class="text-center"><span class="glyphicon glyphicon-info-sign"></span>Version 3.0</p>
+			<hr>
+  			<ul>
+  			  	<li><b>Version 3.0:</b></li>
+  				<ul>
+  					<li>Añadido sistema de suministro de almacén.</li>
+  				</ul>
+  					<li><b>Versión 2.1:</b></li>
+  					
+  					<ul>
+  						<li>Añadida corrección nameplate introducido por el montador. Corrije automáticamente al nameplate correcto cuando se introduce el unit serial number o el module serial number. No permite introducir en el campo del nameplate ningún valor cuyo primer caracter sea un número (debe comenzar con letra -D, M, X, J,...).</li>	
+  					</ul>	  				
+  				<li><b>Version 2.0:</b></li>
+  					<ul>
+  						<li>Añadida la opción de exportar la lista de inspecciones finalizadas tanto a PDF como a Excel.</li>
+  						<li>La tabla de inspecciones finalizadas no se refresca cada 60 segundos en el caso de que se esté consultando una fecha distinta a la actual. 	De este modo se dispone de más tiempo para realizar la consulta. NOTA: esta tabla vuelve automáticamente a la fecha actual a los 10 minutos.</li>
+  						<li>Pequeños cambios cosméticos. Se agranda el recuadro que muestra la fecha en la tabla de inspecciones finalizadas para mejor visibilidad.</li>
+  						<li>Se añade icono "deshacer" junto al nombre del inspector que permite deshacer el inicio de una inspección en caso de hacerlo por error.</li>
+  					</ul>
+  			</ul>
+
+  		</div>  		
+  		<div id="prueba"></div>  		
+
+	</div> <!--FIN CONTAINER-->
+	<div class="cargando text-center"><img src="img/loader.gif"></div>	
+	</body>
+</html>

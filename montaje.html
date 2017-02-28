@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Solicitar aviso</title>
+
+		<!-- Bootstrap CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/custom.css">
+		<link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.min.css">
+		<link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.theme.min.css">
+		<link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.structure.min.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/toastr.min.css">
+		<link rel="shortcut icon" href="favicon.ico">
+
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/montaje.js"></script>
+		<script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+		<script src="js/tinysort.min.js"></script>
+		<script src="js/toastr.min.js"></script>
+		<!-- HTML5 Shim and Respond.js IE8 soporte HTML5 y media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="js/html5shiv.min.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Sistema Avisos y Almacén</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+      <li><a href="#" class="info-pendientes">Ver inspecciones pendientes <span class="glyphicon glyphicon-info-sign"></span></a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Subconjuntos / IP<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+			<li><a href="consumo-disco" data-toggle="modal" data-target="#consumo-discos">Consumir disco <img src="img/disclp.png"></a></li>
+            <li><a href="consumo-alabes" data-toggle="modal" data-target="#consumo-alabes">Consumir juego de álabes <img src="img/bladelp.png"></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="consumo-ngvs" data-toggle="modal" data-target="#consumo-ngvs">Consumir NGV'S LPT <img src="img/ngv.png"></a></li>
+            <li role="separator" class="divider"></li>            
+			  <li><a href="consumo-soporte">Consumir soporte HP/IP <img src="img/soporte.png"></a></li>
+			  <li role="separator" class="divider"></li>
+			  <li><a href="consumo-caseip">Consumir Carcasa IP <img src="img/caseip.png"></a></li>
+			  <li role="separator" class="divider"></li>
+            <li><a href="consumo-ngvlp1">Consumir NGV'S LP1 <img src="img/ngvlp1.png"></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="consumo-ngvip">Consumir NGV'S IP <img src="img/ngvip.png"></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="consumo-alabesip">Consumir álabes turbina IP <img src="img/bladeip.png"></a></li>
+            
+          </ul>
+        </li>
+
+	  <li class="dropdown">
+		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Linea Integración LP<span class="caret"></span></a>
+		  <ul class="dropdown-menu">
+			  <li><a href="solicitar-eje" data-toggle="modal" data-target="#solicitar-eje">Solicitar Eje LPT <img src="img/ejelp.png"></a></li>
+			  <li role="separator" class="divider"></li>
+			  <li><a href="solicitar-tbh" data-toggle="modal" data-target="#solicitar-tbh">Solicitar TBH <img src="img/tbh.png"></a></li>
+			  <li role="separator" class="divider"></li>
+			  <li><a href="solicitar-carcasa" data-toggle="modal" data-target="#solicitar-carcasa">Solicitar Carcasa LPT <img src="img/caselp.png"></a></li>
+		  </ul>
+	  </li>
+		<li class="dropdown">
+			<a href="#" class="dropdown-toggle status-cierres" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Status Cierre Ngv's<span class="caret"></span></a>
+			<ul class="dropdown-menu dropdown-cierres">
+				<li>
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group" id="cierre-ngv-form">
+						<label for="seriengv">Número serie módulo:</label>
+						<input id="seriengv" type="text" class="form-control" placeholder="Número Serie Modulo">
+					</div>
+					<button id="cierre-ngv" class="btn btn-info">Ver</button>
+				</form>
+				</li>
+			</ul>
+		</li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+			
+		</div> 
+
+		<h2 class="text-center">Avisos de inspección </h2>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<form action="" method="POST" role="form" class="formulario">
+						<legend>Seleccionar tipo de aviso</legend>
+					
+						<div class="form-group zona">
+							<label for="zona">Zona para la que se solicita la inspección</label>
+							<select class="form-control input-lg" id="zona">
+								
+
+							</select>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="background"></div>	
+
+		<div class="pendientes-montaje">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>AVISOS PENDIENTES DE INSPECCIÓN</h3>
+						<div class="table-responsive">
+							<table id="montaje-pendientes" class="table table-striped">
+								<thead>
+									<tr>
+									<td>HORA</td>
+									<td>INSPECCIÓN</td>
+									<td>MOTOR</td>
+									<td>NAMEPLATE</td>
+									<td>FITTER</td>
+									</tr>
+								</thead>
+								
+								<tbody></tbody>
+							</table>
+						</div>
+					</div>
+					
+					<div class="cerrar-lateral" title="Cerrar Panel"></div>
+				</div>
+			</div>
+		</div>
+		<div id="error-numero" style="display: none">
+			<h4>Nameplate incorrecto.</h4>
+			<hr/>
+			<p class="text-justify">El nameplate o número de serie de módulo debe comenzar siempre con una letra. Ejemplos:</p>
+			<ul>
+				<li>D1256</li>
+				<li>HH0406</li>
+				<li>D51244</li>
+				<li>XG0070</li>
+			</ul>
+
+		</div>
+		<div id="alabeconsumido" style="display: none">
+			<h4>Juego de álabes consumidos correctamente.</h4>
+			<hr/>
+			<p >Almacén ya tiene constancia de que se ha consumido un juego de álabes.</p>
+		</div>	
+		<div id="ngvlp1consumido" style="display: none">
+			<h4>Juego de NGV'S LP1 consumido correctamente.</h4>
+			<hr/>
+			<p >Almacén ya tiene constancia de que se ha consumido un juego de NGV'S LP1.</p>
+		</div>	
+		<div id="ngvipconsumido" style="display: none">
+			<h4>Juego de NGV'S IP consumido correctamente.</h4>
+			<hr/>
+			<p >Almacén ya tiene constancia de que se ha consumido un juego de NGV'S IP.</p>
+		</div>
+		<div id="soporteconsumido" style="display: none">
+			<h4>Soporte HP/IP consumido correctamente.</h4>
+			<hr/>
+			<p >Almacén ya tiene constancia de que se ha consumido el soporte.</p>
+		</div>
+		<div id="caseipconsumido" style="display: none">
+			<h4>Soporte HP/IP consumido correctamente.</h4>
+			<hr/>
+			<p >Almacén ya tiene constancia de que se ha consumido el soporte.</p>
+		</div>
+	
+		<div id="confirmconsumirngvlp1" style="display: none">
+			<h4>Consumir juego de NGV'S LP1.</h4>
+			<hr/>
+			<p >Introduce el nameplate que se va a consumir <strong>(el que se va a montar)</strong></p>
+			<form>
+				<input type="text"></input>
+			</form>
+		</div>
+
+		<div id="confirmconsumirngvip" style="display: none">
+			<h4>Consumir juego de NGV'S IP.</h4>
+			<hr/>
+			<p>Introduce el nameplate que se va a consumir <strong>(el que se va a montar)</strong></p>
+			<form>
+				<input type="text"></input>
+			</form>
+		</div>
+		<div id="confirmconsumirsoporte" style="display: none">
+			<h4>Consumir Soporte HP/IP.</h4>
+			<hr/>
+			<p>Introduce el nameplate que se va a consumir <strong>(el que se va a montar)</strong></p>
+			<form>
+				<input type="text"></input>
+			</form>
+		</div>
+		<div id="confirmconsumircaseip" style="display: none">
+			<h4>Consumir Carcasa IP.</h4>
+			<hr/>
+			<p>Introduce el nameplate que se va a consumir <strong>(el que se va a montar)</strong></p>
+			<form>
+				<input type="text"></input>
+			</form>
+		</div>
+		<div id="confirmconsumiralabeip" style="display: none">
+			<h4>Consumir juego de álabes IP.</h4>
+			<hr/>
+			<p>Introduce el nameplate que se va a consumir <strong>(el que se va a montar)</strong></p>
+			<form>
+				<input type="text"></input>
+			</form>
+		</div>
+
+		<!--MODAL CON LOS DISCOS EN BUFFER PARA CONSUMIR-->
+		<div class="modal fade" tabindex="-1" role="dialog" id="consumo-discos">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Consumir disco LPT</h4>
+					</div>
+					<div class="modal-body">
+						<h4 id="titulo-discos-en-buffer">Discos en buffer</h4>
+						<div class="listado-discos"></div>
+						<div class="form-listado-discos">
+							<hr>
+							<h4>Consumo manual</h4>
+							<p>Si tu disco no está en el listado de arriba (no ha sido suministrado almacén) , introduce los datos manualmente:</p>
+							<form>
+								<div class="form-group nameplate-listado">
+									<label for="nameplate-listado-discos">Nameplate: </label>
+									<input type="text" class="form-control" id="nameplate-listado-discos" placeholder="Introduce nameplate...">
+								</div>
+								<div class="form-group etapa" style="display: none">
+									<label for="etapa-listado-discos">Etapa: </label>
+									<select class="form-control" id="etapa-listado-discos">
+									</select>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+						<button type="button" class="btn btn-primary enviar-consumo-disco">OK</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<!--MODAL OK CONSUMO DISCOS-->
+		<div class="modal fade" tabindex="-1" role="dialog" id="ok-consumo-discos">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Disco consumido</h4>
+					</div>
+					<div class="modal-body">
+						<h4>Disco consumido correctamente</h4>
+						<div>
+							<hr>
+							<p>Se ha realizado correctamente el consumo del disco.</p>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<!--MODAL CON LOS DISCOS EN BUFFER PARA CONSUMIR-->
+		<div class="modal fade" tabindex="-1" role="dialog" id="consumo-alabes">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Consumir alabes LPT</h4>
+					</div>
+					<div class="modal-body">
+						<h4 id="titulo-alabes-en-buffer">Alabes en buffer</h4>
+						<div class="listado-alabes"></div>
+						<div class="form-listado-alabes">
+							<hr>
+							<h4>Consumo manual</h4>
+							<p>Si tus álabes no están en el listado de arriba (no ha sido suministrado almacén) , introduce los datos manualmente:</p>
+							<form>
+								<div class="form-group nameplate-listado-alabes">
+									<label for="nameplate-listado-alabes">Nameplate: </label>
+									<input type="text" class="form-control" id="nameplate-listado-alabes" placeholder="Introduce nameplate...">
+								</div>
+								<div class="form-group etapa-alabes" style="display: none">
+									<label for="etapa-listado-alabes">Etapa: </label>
+									<select class="form-control" id="etapa-listado-alabes">
+									</select>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+						<button type="button" class="btn btn-primary enviar-consumo-alabes">OK</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<!--MODAL OK CONSUMO ALABES-->
+		<div class="modal fade" tabindex="-1" role="dialog" id="ok-consumo-alabes">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Alabes consumidos</h4>
+					</div>
+					<div class="modal-body">
+						<h4>Alabes consumidos correctamente</h4>
+						<div>
+							<hr>
+							<p>Se ha realizado correctamente el consumo de los alabes.</p>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+<!--MODAL CON LOS NGV'S EN BUFFER PARA CONSUMIR-->
+		<div class="modal fade" tabindex="-1" role="dialog" id="consumo-ngvs">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Consumir NGV'S LPT</h4>
+					</div>
+					<div class="modal-body">
+						<h4 id="titulo-alabes-en-buffer">NGV'S en buffer</h4>
+						<div class="listado-ngvs"></div>
+						<div class="form-listado-ngvs">
+							<hr>
+							<h4>Consumo manual</h4>
+							<p>Si tus NGV'S no están en el listado de arriba (no ha sido suministrados por almacén) , introduce los datos manualmente:</p>
+							<form>
+								<div class="form-group nameplate-listado-alabes">
+									<label for="nameplate-listado-ngvs">Nameplate: </label>
+									<input type="text" class="form-control" id="nameplate-listado-ngvs" placeholder="Introduce serial number..">
+								</div>
+								<div class="form-group etapa-ngvs" style="display: none">
+									<label for="etapa-listado-ngvs">Etapa: </label>
+									<select class="form-control" id="etapa-listado-ngvs">
+									</select>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+						<button type="button" class="btn btn-primary enviar-consumo-ngvs">OK</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->		
+
+		<!--MODAL OK CONSUMO NGV LPT-->
+		<div class="modal fade" tabindex="-1" role="dialog" id="ok-consumo-ngvs">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">NGV'S LPT consumidos</h4>
+					</div>
+					<div class="modal-body">
+						<h4>NGV'S LPT consumidos correctamente.</h4>
+						<div>
+							<hr>
+							<p>Se ha realizado correctamente el consumo de los NGV'S LPT.</p>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->		
+
+		<!--MODAL SOLICITAR EJE-->
+		<div class="modal fade" tabindex="-1" role="dialog" id="solicitar-eje">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Solicitar EJE LPT</h4>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group solicitar-eje">
+								<label for="nameplate-eje">Nameplate: </label>
+								<input type="text" class="form-control" id="nameplate-eje" placeholder="Introduce nameplate...">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default btn-solicitar-eje" data-dismiss="modal">OK</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<!--MODAL SOLICITAR CARCASA	-->
+		<div class="modal fade" tabindex="-1" role="dialog" id="solicitar-carcasa">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Solicitar CARCASA LPT</h4>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group solicitar-carcasa">
+								<label for="nameplate-carcasa">Nameplate: </label>
+								<input type="text" class="form-control" id="nameplate-carcasa" placeholder="Introduce nameplate...">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default btn-solicitar-carcasa" data-dismiss="modal">OK</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<!--MODAL SOLICITAR TBH	-->
+		<div class="modal fade" tabindex="-1" role="dialog" id="solicitar-tbh">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Solicitar TBH</h4>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group solicitar-tbh">
+								<label for="nameplate-tbh">Nameplate: </label>
+								<input type="text" class="form-control" id="nameplate-tbh" placeholder="Introduce nameplate...">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default btn-solicitar-tbh" data-dismiss="modal">OK</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+						
+	</body>
+</html>
