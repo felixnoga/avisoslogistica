@@ -41,23 +41,29 @@ $(document).ready(function(){
 		
 
 	//PULSAR ICONO SIN STOCK PARA PONER EN STOCK ALABES
-	$body.on('click', 'tbody.resultadosalabes i.fa', function(){
+	$body.on('click', 'tbody.resultadosalabes .fa-exclamation-circle', function(){
 		var id=$(this).parent().parent().data('id'); 
 		//cogemos el nameplate del texto del primer td
 		var nameplate=$(this).parent().parent().find('td:eq(0)').text();
 		var etapa=$(this).parent().parent().find('td:eq(1)').text();
 		//pasamos los atributos data al dialog
+		if($('.setstockalabes').find('p:gt(0)').length) {
+            $('.setstockalabes').find('p:gt(0)').remove();
+		}
 		$('.setstockalabes').data('id', id).append('<p>'+etapa + ' '+nameplate+'</p>').dialog('open');
 
 	});	
 
 	//PULSAR ICONO SIN STOCK PARA PONER EN STOCK DISCO
-	$body.on('click', 'tbody.resultadosdiscos i.fa', function(){
+	$body.on('click', 'tbody.resultadosdiscos .fa-exclamation-circle', function(){
 		var id=$(this).parent().parent().data('id'); 
 		//cogemos el nameplate del texto del primer td
 		var nameplate=$(this).parent().parent().find('td:eq(0)').text();
 		var etapa=$(this).parent().parent().find('td:eq(1)').text();
 		//pasamos los atributos data al dialog
+        if($('.setstockdiscos').find('p:gt(0)').length) {
+            $('.setstockdiscos').find('p:gt(0)').remove();
+        }
 		$('.setstockdiscos').data('id', id).append('<p>'+etapa + ' '+nameplate+'</p>').dialog('open');
 
 	});	

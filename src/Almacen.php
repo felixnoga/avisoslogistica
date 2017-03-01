@@ -12,7 +12,7 @@ class Almacen {
 
 	public function showDiscosNoSuministrados(){
 
-		$stm = $this->pdo->query('SELECT P.id AS id, P.nameplate AS nam, P.tipos_motor_id_tipo AS tipomotor, P.stock_alabe AS stocka, P.stock_disco AS stockdis, T.tipo AS tipo, PI.pieza AS pieza FROM programador P INNER JOIN tipos_motor T ON P.tipos_motor_id_tipo=T.id_tipo 
+		$stm = $this->pdo->query('SELECT P.id AS id, P.nameplate AS nam, P.tipos_motor_id_tipo AS tipomotor, P.stock_alabe AS stocka, P.stock_disco AS stockdis, P.availability_disco, T.tipo AS tipo, PI.pieza AS pieza FROM programador P INNER JOIN tipos_motor T ON P.tipos_motor_id_tipo=T.id_tipo 
 			INNER JOIN piezas PI ON P.disco_piezas_id_pieza=PI.id_pieza WHERE suministrado_disco=0 ORDER BY P.orden ASC LIMIT 30');
 		$resultados=$stm->fetchAll(\PDO::FETCH_ASSOC);
         $salida='';
@@ -21,6 +21,9 @@ class Almacen {
 				if ($key['stockdis']==0){
 					$salida.= '<tr class="danger" data-id="'.$key['id'].'">';
 				}
+				else if ($key['availability_disco']==0 && $key['stockdis']==1){
+                    $salida.= '<tr class="warning" data-id="'.$key['id'].'">';
+                }
 				else{
 					$salida.= '<tr data-id="'.$key['id'].'">';
 				}
@@ -41,6 +44,9 @@ class Almacen {
 				if ($key['stockdis']==0){
 					$salida.= '<td><i class="fa fa-exclamation-circle fa-2x"></i></td>';
 				}
+                else if ($key['stockdis']==1 && $key['availability_disco']==0) {
+                    $salida.= '<td><i class="fa fa-hand-stop-o fa-2x"></i></td>';
+                }
 				else {
 					$pattern='/^[BSJRYP]/i';					
 					if (preg_match($pattern, $key['nam'])){					
@@ -96,7 +102,7 @@ class Almacen {
 
 	public function showAlabesNoSuministrados(){
 
-		$stm = $this->pdo->query('SELECT P.id AS id, P.nameplate AS nam, P.tipos_motor_id_tipo AS tipomotor, P.stock_alabe AS stocka, P.stock_disco AS stockdis, T.tipo AS tipo, PI.pieza AS pieza FROM programador P INNER JOIN tipos_motor T ON P.tipos_motor_id_tipo=T.id_tipo 
+		$stm = $this->pdo->query('SELECT P.id AS id, P.nameplate AS nam, P.tipos_motor_id_tipo AS tipomotor, P.stock_alabe AS stocka, P.stock_disco AS stockdis, P.availability_alabe, T.tipo AS tipo, PI.pieza AS pieza FROM programador P INNER JOIN tipos_motor T ON P.tipos_motor_id_tipo=T.id_tipo 
 			INNER JOIN piezas PI ON P.alabe_piezas_id_pieza=PI.id_pieza WHERE suministrado_alabe=0 ORDER BY P.orden ASC LIMIT 30');
 		$resultados=$stm->fetchAll(\PDO::FETCH_ASSOC);
         $salida='';
@@ -105,6 +111,9 @@ class Almacen {
 				if ($key['stocka']==0){
 					$salida.= '<tr class="danger" data-id="'.$key['id'].'">';
 				}
+                else if ($key['availability_alabe']==0 && $key['stocka']==1){
+                    $salida.= '<tr class="warning" data-id="'.$key['id'].'">';
+                }
 				else{
 					$salida.= '<tr data-id="'.$key['id'].'">';
 				}	
@@ -120,6 +129,9 @@ class Almacen {
 				if ($key['stocka']==0){
 					$salida.= '<td><i class="fa fa-exclamation-circle fa-2x"></i></td>';
 				}
+				else if ($key['stocka']==1 && $key['availability_alabe']==0) {
+                    $salida.= '<td><i class="fa fa-hand-stop-o fa-2x"></i></td>';
+                }
 				else {
 					$pattern='/^[BSJRYP]/i';
 					if (preg_match($pattern, $key['nam'])){

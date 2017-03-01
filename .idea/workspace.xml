@@ -21,13 +21,103 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="custom.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/custom.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="1059" column="21" lean-forward="true" selection-start-line="1059" selection-start-column="21" selection-end-line="1059" selection-end-column="21" />
+              <caret line="1059" column="21" lean-forward="false" selection-start-line="1059" selection-start-column="21" selection-end-line="1059" selection-end-column="21" />
               <folding>
                 <marker date="1488374317997" expanded="true" signature="10542:10768" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Almacen.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Almacen.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="503">
+              <caret line="46" column="72" lean-forward="false" selection-start-line="46" selection-start-column="72" selection-end-line="46" selection-end-column="72" />
+              <folding>
+                <marker date="1488375852067" expanded="true" signature="295:677" ph="SELECT P.id programador" />
+                <marker date="1488375852067" expanded="true" signature="2519:2878" ph="SELECT P.id programador" />
+                <marker date="1488375852067" expanded="true" signature="4020:4402" ph="SELECT P.id programador" />
+                <marker date="1488375852067" expanded="true" signature="6156:6515" ph="SELECT P.id programador" />
+                <marker date="1488375852067" expanded="true" signature="7594:7665" ph="UPDATE progr... " />
+                <marker date="1488375852067" expanded="true" signature="8073:8170" ph="UPDATE progr... " />
+                <marker date="1488375852067" expanded="true" signature="8688:8790" ph="SELECT COUNT... programador" />
+                <marker date="1488375852067" expanded="true" signature="9116:9262" ph="UPDATE progr... " />
+                <marker date="1488375852067" expanded="true" signature="9752:9819" ph="SELECT * FRO... programador" />
+                <marker date="1488375852067" expanded="true" signature="10051:10124" ph="SELECT * FRO... programador" />
+                <marker date="1488375852067" expanded="true" signature="10364:10407" ph="UPDATE progr... " />
+                <marker date="1488375852067" expanded="true" signature="10532:10571" ph="UPDATE ngvs " />
+                <marker date="1488375852067" expanded="true" signature="10655:10704" ph="UPDATE progr... " />
+                <marker date="1488375852067" expanded="true" signature="10878:10980" ph="SELECT COUNT... programador" />
+                <marker date="1488375852067" expanded="true" signature="11312:11432" ph="UPDATE progr... " />
+                <marker date="1488375852067" expanded="true" signature="11810:11899" ph="UPDATE ngvs " />
+                <marker date="1488375852067" expanded="true" signature="12270:12376" ph="INSERT INTO ngvs... " />
+                <marker date="1488375852067" expanded="true" signature="12682:12739" ph="SELECT * FRO... ngvs" />
+                <marker date="1488375852067" expanded="true" signature="13732:13797" ph="SELECT * FRO... ngvs" />
+                <marker date="1488375852067" expanded="true" signature="14663:14722" ph="UPDATE ngvs " />
+                <marker date="1488375852067" expanded="true" signature="14962:15038" ph="SELECT id, n... ngvs" />
+                <marker date="1488375852067" expanded="true" signature="17488:17509" ph="DELETE FROM " />
+                <marker date="1488375852067" expanded="true" signature="17771:17813" ph="SELECT namep... case_ip" />
+                <marker date="1488375852067" expanded="true" signature="18191:18222" ph="SELECT casei... cajas_vacias" />
+                <marker date="1488375852067" expanded="true" signature="18684:18729" ph="SELECT namep... soporte_hp" />
+                <marker date="1488375852067" expanded="true" signature="19107:19139" ph="SELECT sopor... cajas_vacias" />
+                <marker date="1488375852067" expanded="true" signature="19817:19893" ph="INSERT into alabes_ip... " />
+                <marker date="1488375852067" expanded="true" signature="20451:20528" ph="INSERT into soporte_hp... " />
+                <marker date="1488375852067" expanded="true" signature="20861:20905" ph="SELECT namep... alabes_ip" />
+                <marker date="1488375852067" expanded="true" signature="21283:21316" ph="SELECT alabe... cajas_vacias" />
+                <marker date="1488375852067" expanded="true" signature="21779:21821" ph="SELECT namep... ngv_lp1" />
+                <marker date="1488375852067" expanded="true" signature="22199:22230" ph="SELECT ngvlp... cajas_vacias" />
+                <marker date="1488375852067" expanded="true" signature="22689:22730" ph="SELECT namep... ngv_ip" />
+                <marker date="1488375852067" expanded="true" signature="23108:23138" ph="SELECT ngvip... cajas_vacias" />
+                <marker date="1488375852067" expanded="true" signature="23595:23617" ph="DELETE FROM " />
+                <marker date="1488375852067" expanded="true" signature="23874:23893" ph="DELETE FROM " />
+                <marker date="1488375852067" expanded="true" signature="24151:24170" ph="DELETE FROM " />
+                <marker date="1488375852067" expanded="true" signature="24428:24446" ph="DELETE FROM " />
+                <marker date="1488375852067" expanded="true" signature="24707:24726" ph="DELETE FROM " />
+                <marker date="1488375852067" expanded="true" signature="24990:25012" ph="DELETE FROM " />
+                <marker date="1488375852067" expanded="true" signature="25274:25295" ph="DELETE FROM " />
+                <marker date="1488375852067" expanded="true" signature="25556:25578" ph="DELETE FROM " />
+                <marker date="1488375852067" expanded="true" signature="25840:25855" ph="DELETE FROM " />
+                <marker date="1488375852067" expanded="true" signature="26121:26139" ph="DELETE FROM " />
+                <marker date="1488375852067" expanded="true" signature="26542:26561" ph="DELETE FROM " />
+                <marker date="1488375852067" expanded="true" signature="26607:26681" ph="INSERT into ngv_lp1... " />
+                <marker date="1488375852067" expanded="true" signature="26707:26746" ph="UPDATE cajas... " />
+                <marker date="1488375852067" expanded="true" signature="27335:27353" ph="DELETE FROM " />
+                <marker date="1488375852067" expanded="true" signature="27399:27472" ph="INSERT into ngv_ip... " />
+                <marker date="1488375852067" expanded="true" signature="28104:28123" ph="DELETE FROM " />
+                <marker date="1488375852067" expanded="true" signature="28187:28261" ph="INSERT into case_ip... " />
+                <marker date="1488375852067" expanded="true" signature="28758:28880" ph="SELECT tipos... programador" />
+                <marker date="1488375852067" expanded="true" signature="28830:28879" ph="SELECT max(t... programador" />
+                <marker date="1488375852067" expanded="true" signature="29171:29317" ph="UPDATE progr... " />
+                <marker date="1488375852067" expanded="true" signature="29267:29316" ph="SELECT max(t... programador" />
+                <marker date="1488375852067" expanded="true" signature="29360:29506" ph="UPDATE progr... " />
+                <marker date="1488375852067" expanded="true" signature="29456:29505" ph="SELECT max(t... programador" />
+                <marker date="1488375852067" expanded="true" signature="29594:29755" ph="SELECT alabe... programador" />
+                <marker date="1488375852067" expanded="true" signature="29704:29754" ph="SELECT max(t... programador" />
+                <marker date="1488375852067" expanded="true" signature="29793:29942" ph="UPDATE progr... " />
+                <marker date="1488375852067" expanded="true" signature="29891:29941" ph="SELECT max(t... programador" />
+                <marker date="1488375852067" expanded="true" signature="30013:30270" ph="SELECT COUNT... programador" />
+                <marker date="1488375852067" expanded="true" signature="30381:30635" ph="SELECT COUNT... programador" />
+                <marker date="1488375852067" expanded="true" signature="30754:31002" ph="SELECT COUNT... programador" />
+                <marker date="1488375852067" expanded="true" signature="31112:31357" ph="SELECT COUNT... programador" />
+                <marker date="1488375852067" expanded="true" signature="31471:31529" ph="SELECT COUNT... ngvs" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="almacen.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/almacen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="64" column="30" lean-forward="false" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
+              <folding>
+                <marker date="1488376215834" expanded="true" signature="28667:28680" ph="..." />
+                <marker date="1488376215834" expanded="true" signature="29139:29152" ph="..." />
               </folding>
             </state>
           </provider>
@@ -105,7 +195,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>enviar-pr</find>
       <find>addpr</find>
       <find>añadir to</find>
       <find>home</find>
@@ -135,6 +224,7 @@
       <find>nostock</find>
       <find>closno</find>
       <find>SIDE</find>
+      <find>poner</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -146,15 +236,15 @@
         <option value="$PROJECT_DIR$/src/LineaIntegracion.php" />
         <option value="$PROJECT_DIR$/montaje.html" />
         <option value="$PROJECT_DIR$/js/montaje.js" />
-        <option value="$PROJECT_DIR$/js/almacen.js" />
         <option value="$PROJECT_DIR$/almacen.php" />
-        <option value="$PROJECT_DIR$/src/Almacen.php" />
         <option value="$PROJECT_DIR$/subirexcel.php" />
         <option value="$PROJECT_DIR$/programador.php" />
         <option value="$PROJECT_DIR$/src/Programador.php" />
         <option value="$PROJECT_DIR$/js/programador.js" />
         <option value="$PROJECT_DIR$/programador.html" />
         <option value="$PROJECT_DIR$/css/custom.css" />
+        <option value="$PROJECT_DIR$/src/Almacen.php" />
+        <option value="$PROJECT_DIR$/js/almacen.js" />
       </list>
     </option>
   </component>
@@ -190,6 +280,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -246,7 +337,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -340,17 +430,18 @@
       <workItem from="1488368696146" duration="33000" />
       <workItem from="1488368731921" duration="5882000" />
       <workItem from="1488374650197" duration="21000" />
+      <workItem from="1488375501938" duration="745000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49435000" />
+    <option name="totallyTimeSpent" value="50180000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1924" height="1048" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18939394" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19209957" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -663,20 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/almacen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11940">
-          <caret line="398" column="16" lean-forward="true" selection-start-line="398" selection-start-column="16" selection-end-line="398" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Almacen.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20520">
-          <caret line="684" column="59" lean-forward="false" selection-start-line="684" selection-start-column="59" selection-end-line="684" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/almacen.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="451">
@@ -782,9 +859,95 @@
     <entry file="file://$PROJECT_DIR$/css/custom.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="1059" column="21" lean-forward="true" selection-start-line="1059" selection-start-column="21" selection-end-line="1059" selection-end-column="21" />
+          <caret line="1059" column="21" lean-forward="false" selection-start-line="1059" selection-start-column="21" selection-end-line="1059" selection-end-column="21" />
           <folding>
             <marker date="1488374317997" expanded="true" signature="10542:10768" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Almacen.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="46" column="72" lean-forward="false" selection-start-line="46" selection-start-column="72" selection-end-line="46" selection-end-column="72" />
+          <folding>
+            <marker date="1488375852067" expanded="true" signature="295:677" ph="SELECT P.id programador" />
+            <marker date="1488375852067" expanded="true" signature="2519:2878" ph="SELECT P.id programador" />
+            <marker date="1488375852067" expanded="true" signature="4020:4402" ph="SELECT P.id programador" />
+            <marker date="1488375852067" expanded="true" signature="6156:6515" ph="SELECT P.id programador" />
+            <marker date="1488375852067" expanded="true" signature="7594:7665" ph="UPDATE progr... " />
+            <marker date="1488375852067" expanded="true" signature="8073:8170" ph="UPDATE progr... " />
+            <marker date="1488375852067" expanded="true" signature="8688:8790" ph="SELECT COUNT... programador" />
+            <marker date="1488375852067" expanded="true" signature="9116:9262" ph="UPDATE progr... " />
+            <marker date="1488375852067" expanded="true" signature="9752:9819" ph="SELECT * FRO... programador" />
+            <marker date="1488375852067" expanded="true" signature="10051:10124" ph="SELECT * FRO... programador" />
+            <marker date="1488375852067" expanded="true" signature="10364:10407" ph="UPDATE progr... " />
+            <marker date="1488375852067" expanded="true" signature="10532:10571" ph="UPDATE ngvs " />
+            <marker date="1488375852067" expanded="true" signature="10655:10704" ph="UPDATE progr... " />
+            <marker date="1488375852067" expanded="true" signature="10878:10980" ph="SELECT COUNT... programador" />
+            <marker date="1488375852067" expanded="true" signature="11312:11432" ph="UPDATE progr... " />
+            <marker date="1488375852067" expanded="true" signature="11810:11899" ph="UPDATE ngvs " />
+            <marker date="1488375852067" expanded="true" signature="12270:12376" ph="INSERT INTO ngvs... " />
+            <marker date="1488375852067" expanded="true" signature="12682:12739" ph="SELECT * FRO... ngvs" />
+            <marker date="1488375852067" expanded="true" signature="13732:13797" ph="SELECT * FRO... ngvs" />
+            <marker date="1488375852067" expanded="true" signature="14663:14722" ph="UPDATE ngvs " />
+            <marker date="1488375852067" expanded="true" signature="14962:15038" ph="SELECT id, n... ngvs" />
+            <marker date="1488375852067" expanded="true" signature="17488:17509" ph="DELETE FROM " />
+            <marker date="1488375852067" expanded="true" signature="17771:17813" ph="SELECT namep... case_ip" />
+            <marker date="1488375852067" expanded="true" signature="18191:18222" ph="SELECT casei... cajas_vacias" />
+            <marker date="1488375852067" expanded="true" signature="18684:18729" ph="SELECT namep... soporte_hp" />
+            <marker date="1488375852067" expanded="true" signature="19107:19139" ph="SELECT sopor... cajas_vacias" />
+            <marker date="1488375852067" expanded="true" signature="19817:19893" ph="INSERT into alabes_ip... " />
+            <marker date="1488375852067" expanded="true" signature="20451:20528" ph="INSERT into soporte_hp... " />
+            <marker date="1488375852067" expanded="true" signature="20861:20905" ph="SELECT namep... alabes_ip" />
+            <marker date="1488375852067" expanded="true" signature="21283:21316" ph="SELECT alabe... cajas_vacias" />
+            <marker date="1488375852067" expanded="true" signature="21779:21821" ph="SELECT namep... ngv_lp1" />
+            <marker date="1488375852067" expanded="true" signature="22199:22230" ph="SELECT ngvlp... cajas_vacias" />
+            <marker date="1488375852067" expanded="true" signature="22689:22730" ph="SELECT namep... ngv_ip" />
+            <marker date="1488375852067" expanded="true" signature="23108:23138" ph="SELECT ngvip... cajas_vacias" />
+            <marker date="1488375852067" expanded="true" signature="23595:23617" ph="DELETE FROM " />
+            <marker date="1488375852067" expanded="true" signature="23874:23893" ph="DELETE FROM " />
+            <marker date="1488375852067" expanded="true" signature="24151:24170" ph="DELETE FROM " />
+            <marker date="1488375852067" expanded="true" signature="24428:24446" ph="DELETE FROM " />
+            <marker date="1488375852067" expanded="true" signature="24707:24726" ph="DELETE FROM " />
+            <marker date="1488375852067" expanded="true" signature="24990:25012" ph="DELETE FROM " />
+            <marker date="1488375852067" expanded="true" signature="25274:25295" ph="DELETE FROM " />
+            <marker date="1488375852067" expanded="true" signature="25556:25578" ph="DELETE FROM " />
+            <marker date="1488375852067" expanded="true" signature="25840:25855" ph="DELETE FROM " />
+            <marker date="1488375852067" expanded="true" signature="26121:26139" ph="DELETE FROM " />
+            <marker date="1488375852067" expanded="true" signature="26542:26561" ph="DELETE FROM " />
+            <marker date="1488375852067" expanded="true" signature="26607:26681" ph="INSERT into ngv_lp1... " />
+            <marker date="1488375852067" expanded="true" signature="26707:26746" ph="UPDATE cajas... " />
+            <marker date="1488375852067" expanded="true" signature="27335:27353" ph="DELETE FROM " />
+            <marker date="1488375852067" expanded="true" signature="27399:27472" ph="INSERT into ngv_ip... " />
+            <marker date="1488375852067" expanded="true" signature="28104:28123" ph="DELETE FROM " />
+            <marker date="1488375852067" expanded="true" signature="28187:28261" ph="INSERT into case_ip... " />
+            <marker date="1488375852067" expanded="true" signature="28758:28880" ph="SELECT tipos... programador" />
+            <marker date="1488375852067" expanded="true" signature="28830:28879" ph="SELECT max(t... programador" />
+            <marker date="1488375852067" expanded="true" signature="29171:29317" ph="UPDATE progr... " />
+            <marker date="1488375852067" expanded="true" signature="29267:29316" ph="SELECT max(t... programador" />
+            <marker date="1488375852067" expanded="true" signature="29360:29506" ph="UPDATE progr... " />
+            <marker date="1488375852067" expanded="true" signature="29456:29505" ph="SELECT max(t... programador" />
+            <marker date="1488375852067" expanded="true" signature="29594:29755" ph="SELECT alabe... programador" />
+            <marker date="1488375852067" expanded="true" signature="29704:29754" ph="SELECT max(t... programador" />
+            <marker date="1488375852067" expanded="true" signature="29793:29942" ph="UPDATE progr... " />
+            <marker date="1488375852067" expanded="true" signature="29891:29941" ph="SELECT max(t... programador" />
+            <marker date="1488375852067" expanded="true" signature="30013:30270" ph="SELECT COUNT... programador" />
+            <marker date="1488375852067" expanded="true" signature="30381:30635" ph="SELECT COUNT... programador" />
+            <marker date="1488375852067" expanded="true" signature="30754:31002" ph="SELECT COUNT... programador" />
+            <marker date="1488375852067" expanded="true" signature="31112:31357" ph="SELECT COUNT... programador" />
+            <marker date="1488375852067" expanded="true" signature="31471:31529" ph="SELECT COUNT... ngvs" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/almacen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="64" column="30" lean-forward="false" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
+          <folding>
+            <marker date="1488376215834" expanded="true" signature="28667:28680" ph="..." />
+            <marker date="1488376215834" expanded="true" signature="29139:29152" ph="..." />
           </folding>
         </state>
       </provider>
