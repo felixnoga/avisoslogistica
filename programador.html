@@ -125,36 +125,86 @@
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
 
-	<!--DIALOG NO STOCK ALABES-->
+	<!--DIALOG PONER NO STOCK ALABES-->
 	<div id="nostockalabes" style="display: none">
 		<p>Poner juego de álabes como no disponibles (sin stock en almacén)</p>
 		<hr />
-		<button class="btn btn-danger setnostock">SIN STOCK</button>
-		<button class="btn btn-default closenostock">CANCELAR</button>
+		<button class="btn btn-danger btn-xs setnostock"><i class="fa fa-exclamation-circle"></i> SIN STOCK</button>
+		<button class="btn btn-default btn-xs closenostock">CANCELAR</button>
 	</div>
 
-	<!--DIALOG NO STOCK DISCO-->
-	<div id="nostockdisco" style="display: none">
-		<p>Poner disco como no disponible (sin stock en almacén)</p>
+	<!--DIALOG NO AVAILABLE ALABES-->
+	<div id="noavailablealabes" style="display: none">
+		<p>Poner juego de álabes como no disponibles para la línea de producción.</p>
 		<hr />
-		<button class="btn btn-danger setnostock" type="submit">SIN STOCK</button>
-		<button class="btn btn-default closenostock" type="submit">CANCELAR</button>
+		<button class="btn btn-warning btn-xs setnoavailable"><i class="fa fa-hand-stop-o"></i> SET NO SUMINISTRABLE</button>
+		<button class="btn btn-default btn-xs closenostock">CANCELAR</button>
+	</div>
+
+	<!--DIALOG NO STOCK/NO AVAILABLE ALABES -->
+	<div id="noavailablenostockalabes" style="display: none">
+		<p>Poner alabes como no disponibles (sin stock en almacén) o parados por razones de producción.</p>
+		<hr />
+		<button class="btn btn-danger btn-xs setnostock"><i class="fa fa-exclamation-circle"></i> SIN STOCK</button>
+		<button class="btn btn-warning btn-xs setnoavailable"><i class="fa fa-hand-stop-o"></i> SET NO SUMINISTRABLE</button>
+		<button class="btn btn-default btn-xs closenostock">CANCELAR</button>
 	</div>
 
 	<!--DIALOG HAY STOCK ALABES-->
 	<div id="sistockalabes" style="display: none">
 		<p>Poner juego de álabes como disponibles (ha llegado stock a almacén)</p>
 		<hr />
-		<button class="btn btn-success setstock">AGREGAR A STOCK</button>
-		<button class="btn btn-default closenostock">CANCELAR</button>
+		<button class="btn btn-success btn-xs setstock">AGREGAR A STOCK</button>
+		<button class="btn btn-default btn-xs closenostock">CANCELAR</button>
+	</div>
+
+	<!--DIALOG ALABES AVAILABLES-->
+	<div id="siavailablealabes" style="display: none">
+		<p>Poner juego de álabes como disponibles para la línea de producción.</p>
+		<hr />
+		<button class="btn btn-success btn-xs setavailable">SET DISPONIBLES</button>
+		<button class="btn btn-default btn-xs closenostock">CANCELAR</button>
+	</div>
+
+	<!--DIALOG PONER NO STOCK DISCO-->
+	<div id="nostockdisco" style="display: none">
+		<p>Poner disco como no disponible (sin stock en almacén)</p>
+		<hr />
+		<button class="btn btn-danger btn-xs setnostock"><i class="fa fa-exclamation-circle"></i> SIN STOCK</button>
+		<button class="btn btn-default btn-xs closenostock">CANCELAR</button>
+	</div>
+
+	<!--DIALOG NO AVAILABLE DISCO-->
+	<div id="noavailabledisco" style="display: none">
+		<p>Poner disco como no disponible para la línea de producción.</p>
+		<hr />
+		<button class="btn btn-warning btn-xs setnoavailable"><i class="fa fa-hand-stop-o"></i> SET NO SUMINISTRABLE</button>
+		<button class="btn btn-default btn-xs closenostock">CANCELAR</button>
+	</div>
+
+	<!--DIALOG NO STOCK/NO AVAILABLE DISCO -->
+	<div id="noavailablenostockdisco" style="display: none">
+		<p>Poner disco como no disponible (sin stock en almacén) o parado por razones de producción.</p>
+		<hr />
+		<button class="btn btn-danger btn-xs setnostock"><i class="fa fa-exclamation-circle"></i> SIN STOCK</button>
+		<button class="btn btn-warning btn-xs setnoavailable"><i class="fa fa-hand-stop-o"></i> SET NO SUMINISTRABLE</button>
+		<button class="btn btn-default btn-xs closenostock">CANCELAR</button>
 	</div>
 
 	<!--DIALOG HAY STOCK DISCO-->
 	<div id="sistockdisco" style="display: none">
 		<p>El disco ya se encuentra en stock (ha llegado a almacén)</p>
 		<hr />
-		<button class="btn btn-success setstock" type="submit">AGREGAR A STOCK</button>
-		<button class="btn btn-default closenostock" type="submit">CANCELAR</button>
+		<button class="btn btn-success btn-xs setstock" type="submit">AGREGAR A STOCK</button>
+		<button class="btn btn-default btn-xs closenostock" type="submit">CANCELAR</button>
+	</div>	
+
+	<!--DIALOG PONE DISCO AVAILABLE-->
+	<div id="siavailabledisco" style="display: none">
+		<p>Poner disco como disponible para la línea de producción.</p>
+		<hr />
+		<button class="btn btn-success btn-xs setavailable" type="submit">SET DISPONIBLE</button>
+		<button class="btn btn-default btn-xs closenostock" type="submit">CANCELAR</button>
 	</div>	
 	
 	<!--DIALOG BORRAR PROGRAMA-->

@@ -121,7 +121,7 @@ class Programador {
 
 	public function showNoSuministrados(){
 
-		$stm = $this->pdo->query('SELECT P.id AS id, P.nameplate AS nam, P.suministrado_alabe, P.suministrado_disco, P.tipos_motor_id_tipo, P.stock_alabe AS stocka, P.stock_disco AS stockdis, T.tipo AS tipo, PI.pieza AS pieza FROM programador P INNER JOIN tipos_motor T ON P.tipos_motor_id_tipo=T.id_tipo 
+		$stm = $this->pdo->query('SELECT P.id AS id, P.nameplate AS nam, P.suministrado_alabe, P.suministrado_disco, P.tipos_motor_id_tipo,P.availability_alabe, P.availability_disco, P.stock_alabe AS stocka, P.stock_disco AS stockdis, T.tipo AS tipo, PI.pieza AS pieza FROM programador P INNER JOIN tipos_motor T ON P.tipos_motor_id_tipo=T.id_tipo 
 			INNER JOIN piezas PI ON P.disco_piezas_id_pieza=PI.id_pieza WHERE P.suministrado_disco=0 OR P.suministrado_alabe=0 ORDER BY P.orden ASC');
 		$resultados=$stm->fetchAll(\PDO::FETCH_ASSOC);
 		foreach ($resultados as $key) {
@@ -167,7 +167,10 @@ class Programador {
 				}	
 				
 				if ($key['stocka']==0){
-					echo '<i class="fa fa-exclamation-circle fa-2x nostock"></i>';
+					echo '<i class="fa fa-exclamation-circle nostock"></i>';
+				}
+				if ($key['availability_alabe']==0) {
+					echo '<i class="fa fa-hand-stop-o noavailable"></i>';
 				}
 				if ($key['suministrado_alabe']==1){
 					echo '<img class="suministrado" src="img/suministrado.png" />';
@@ -205,7 +208,11 @@ class Programador {
 				}
 
 				if ($key['stockdis']==0){
-					echo '<i class="fa fa-exclamation-circle fa-2x nostock"></i>';
+					echo '<i class="fa fa-exclamation-circle nostock"></i>';
+				}
+
+				if ($key['availability_disco']==0) {
+					echo '<i class="fa fa-hand-stop-o noavailable"></i>';
 				}								
 
 				echo '<h6><span class="etapadisc">'. $etapa.'</span></h6>';
@@ -351,10 +358,22 @@ class Programador {
 
 	}
 
+	public function setAvailabilityAlabes ($id, $availabilty){
+		$stm = $this->pdo->prepare('UPDATE programador SET availability_alabe=:availability WHERE id= :id');
+		$stm->execute(array(':availability'=>$availabilty, ':id'=>$id));
+
+	}	
+
 
 	public function setStockDisco ($id, $stock){
 		$stm = $this->pdo->prepare('UPDATE programador SET stock_disco=:stock WHERE id= :id');
 		$stm->execute(array(':stock'=>$stock, ':id'=>$id));
+
+	}
+
+	public function setAvailabilityDisco ($id, $availabilty){
+		$stm = $this->pdo->prepare('UPDATE programador SET availability_disco=:availability WHERE id= :id');
+		$stm->execute(array(':availability'=>$availabilty, ':id'=>$id));
 
 	}
 

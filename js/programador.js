@@ -113,29 +113,64 @@ $(document).ready(function(){
     	}
     });
 
-    //DIALOG NO STOCK ALABES
+    //DIALOG NO STOCK ALABES / ALABES NO DISPONIBLES
     var $na = $('#nostockalabes');
+    var $np = $('#noavailablealabes');
+    var $npa = $('#noavailablenostockalabes');
     $('#nostockalabes').dialog({
     	title: 'Sin stock de álabes',
     	autoOpen: false,
+        minWidth: 500,
     	modal: true
     });
 
-    $('body').on('click', '.alabe', function(){
+    $('#noavailablealabes').dialog({
+        title: 'Alabes no disponibles',
+        autoOpen: false,
+        minWidth: 500,
+        modal: true
+    });  
 
-    	var id=$(this).parent().attr('id');
-    	var nameplate = $(this).find('h4').text();
-    	if ($(this).find('i.nostock').length===0){
-    		if ($na.find('.nameplate-alabes').length>0){
-    			$('.nameplate-alabes').remove();
-    		}	
-    		$na.data('id', id).prepend('<p class="nameplate-alabes">'+nameplate+'</p>').dialog('open');
-    		
-    	}	
+    $('#noavailablenostockalabes').dialog({
+        title: 'Alabes no disponibles o sin stock',
+        autoOpen: false,
+        minWidth: 500,
+        modal: true
+    });       
+    //PONER NO AVAILABLE ALABES / NO STOCK ALABES / NOSTOCKNOAVAILABLE ALABES
+    $('body').on('click', '.alabe', function(){
+        if ($(this).find('.nostock').length && !$(this).find('.noavailable').length) {
+            var id=$(this).parent().attr('id');
+            var nameplate = $(this).find('h5').text();
+            if ($np.find('.nameplate-alabes').length>0){
+                $('.nameplate-alabes').remove();
+            }
+            $np.data('id', id).prepend('<p class="nameplate-alabes">'+nameplate+'</p>').dialog('open');
+        }
+
+        else if (!$(this).find('.nostock').length && $(this).find('.noavailable').length) {
+            var id=$(this).parent().attr('id');
+            var nameplate = $(this).find('h5').text();
+            if ($na.find('.nameplate-alabes').length>0){
+                $('.nameplate-alabes').remove();
+            }
+            $na.data('id', id).prepend('<p class="nameplate-alabes">'+nameplate+'</p>').dialog('open');
+        }
+
+        else if (!$(this).find('.nostock').length && !$(this).find('.noavailable').length) {
+            var id=$(this).parent().attr('id');
+            var nameplate = $(this).find('h5').text();
+            if ($npa.find('.nameplate-alabes').length>0){
+                $('.nameplate-alabes').remove();
+            }
+            $npa.data('id', id).prepend('<p class="nameplate-alabes">'+nameplate+'</p>').dialog('open');
+        }
+
     });
 
+    //BOTON PONER NO STOCK EN DIALOGS
     $('#nostockalabes .setnostock').on('click', function (){
-    	var nostockid = $('#nostockalabes').data('id');
+    	var nostockid = $na.data('id');
     	$.ajax({
     		method: 'POST',
     		url: 'programador.php',
@@ -147,15 +182,287 @@ $(document).ready(function(){
 
     });
 
+    $('#noavailablenostockalabes .setnostock').on('click', function (){
+        var nostockid = $npa.data('id');
+        $.ajax({
+            method: 'POST',
+            url: 'programador.php',
+            data: {nostockalabe: nostockid}
+        }).done(function(){
+            $npa.dialog('close');
+            $('.resultados').load('programador.php', {todos: "true"});
+        });
 
-    //DIALOG NO STOCK DISCOS
-    
-    var $nd = $('#nostockdisco');
-    $('#nostockdisco').dialog({
-    	title: 'Sin stock de disco',
-    	autoOpen: false,
-    	modal: true
+    });    
+
+    //BOTON PONER NO AVAILABLE EN DIALOGS ALABES
+    $('#noavailablealabes .setnoavailable').on('click', function (){
+        var nostockid = $np.data('id');
+        $.ajax({
+            method: 'POST',
+            url: 'programador.php',
+            data: {noavailablealabe: nostockid}
+        }).done(function(){
+            $np.dialog('close');
+            $('.resultados').load('programador.php', {todos: "true"});
+        });
+
+    }); 
+
+    $('#noavailablenostockalabes .setnoavailable').on('click', function (){
+        var nostockid = $npa.data('id');
+        $.ajax({
+            method: 'POST',
+            url: 'programador.php',
+            data: {noavailablealabe: nostockid}
+        }).done(function(){
+            $npa.dialog('close');
+            $('.resultados').load('programador.php', {todos: "true"});
+        });
+
+    });     
+
+    //DIALOG PONER EN STOCK ALABES
+
+    var $saa = $('#sistockalabes');
+    var $spa = $('#siavailablealabes');
+    $saa.dialog({
+        title: 'Agregar stock',
+        autoOpen: false,
+        modal: true,
+        minWidth: 400
+    });  
+
+    $spa.dialog({
+        title: 'Agregar disponibles para producción',
+        autoOpen: false,
+        modal: true,
+        minWidth: 400
+    });        
+
+    $('body') .on('click', '.alabe .nostock', function(e){
+        e.stopPropagation();
+        var id=$(this).closest('.row').attr('id');
+        var nameplate = $(this).parent().find('h5').text();
+        if ($saa.find('.nameplate-alabes').length>0){
+            $('.nameplate-alabes').remove();
+        }
+        $saa.data('id', id).prepend('<p class="nameplate-alabes">'+nameplate+'</p>').dialog('open');
     });
+
+    $('body') .on('click', '.alabe .noavailable', function(e){
+        e.stopPropagation();
+        var id=$(this).closest('.row').attr('id');
+        var nameplate = $(this).parent().find('h5').text();
+        if ($spa.find('.nameplate-alabes').length>0){
+            $('.nameplate-alabe').remove();
+        }
+        $spa.data('id', id).prepend('<p class="nameplate-alabes">'+nameplate+'</p>').dialog('open');
+    });    
+
+    $('#sistockalabes .setstock').on('click', function (){
+        var stockid = $saa.data('id');
+        $.ajax({
+            method: 'POST',
+            url: 'programador.php',
+            data: {sistockalabes: stockid}
+        }).done(function(){
+            $saa.dialog('close');
+            $('.resultados').load('programador.php', {todos: "true"});
+        });
+
+    }); 
+
+    $('#siavailablealabes .setavailable').on('click', function (){
+        var stockid = $spa.data('id');
+        $.ajax({
+            method: 'POST',
+            url: 'programador.php',
+            data: {siavailablealabes: stockid}
+        }).done(function(){
+            $spa.dialog('close');
+            $('.resultados').load('programador.php', {todos: "true"});
+        });
+
+    });
+
+//DIALOG NO STOCK DISCO / DISCO NO DISPONIBLES ++++++++++DISCOS+++++++++++++++++++++
+    var $nostockdisco = $('#nostockdisco');
+    var $noavailabledisco = $('#noavailabledisco');
+    var $nostnoavdisco = $('#noavailablenostockdisco');
+    $('#nostockdisco').dialog({
+        title: 'Sin stock de disco',
+        autoOpen: false,
+        minWidth: 500,
+        modal: true
+    });
+
+    $('#noavailabledisco').dialog({
+        title: 'Disco no suministrable',
+        autoOpen: false,
+        minWidth: 500,
+        modal: true
+    });
+
+    $('#noavailablenostockdisco').dialog({
+        title: 'Disco no suministrable o sin stock',
+        autoOpen: false,
+        minWidth: 500,
+        modal: true
+    });
+    //PONER NO AVAILABLE DISCO / NO STOCK DISCO / NOSTOCKNOAVAILABLE DISCO
+    $('body').on('click', '.disco', function(){
+        if ($(this).find('.nostock').length && !$(this).find('.noavailable').length) {
+            var id=$(this).parent().attr('id');
+            var nameplate = $(this).find('h5').text();
+            if ($noavailabledisco.find('.nameplate-disco').length>0){
+                $('.nameplate-disco').remove();
+            }
+            $noavailabledisco.data('id', id).prepend('<p class="nameplate-disco">'+nameplate+'</p>').dialog('open');
+        }
+
+        else if (!$(this).find('.nostock').length && $(this).find('.noavailable').length) {
+            var id=$(this).parent().attr('id');
+            var nameplate = $(this).find('h5').text();
+            if ($nostockdisco.find('.nameplate-disco').length>0){
+                $('.nameplate-disco').remove();
+            }
+            $nostockdisco.data('id', id).prepend('<p class="nameplate-disco">'+nameplate+'</p>').dialog('open');
+        }
+
+        else if (!$(this).find('.nostock').length && !$(this).find('.noavailable').length) {
+            var id=$(this).parent().attr('id');
+            var nameplate = $(this).find('h5').text();
+            if ($nostnoavdisco.find('.nameplate-disco').length>0){
+                $('.nameplate-disco').remove();
+            }
+            $nostnoavdisco.data('id', id).prepend('<p class="nameplate-disco">'+nameplate+'</p>').dialog('open');
+        }
+
+    });
+
+    //BOTON PONER NO STOCK EN DIALOGS
+    $('#nostockdisco .setnostock').on('click', function (){
+        var nostockid = $nostockdisco.data('id');
+        $.ajax({
+            method: 'POST',
+            url: 'programador.php',
+            data: {nostockdisco: nostockid}
+        }).done(function(){
+            $nostockdisco.dialog('close');
+            $('.resultados').load('programador.php', {todos: "true"});
+        });
+
+    });
+
+    $('#noavailablenostockdisco .setnostock').on('click', function (){
+        var nostockid = $nostnoavdisco.data('id');
+        $.ajax({
+            method: 'POST',
+            url: 'programador.php',
+            data: {nostockdisco: nostockid}
+        }).done(function(){
+            $nostnoavdisco.dialog('close');
+            $('.resultados').load('programador.php', {todos: "true"});
+        });
+
+    });
+
+    //BOTON PONER NO AVAILABLE EN DIALOGS ALABES
+    $('#noavailabledisco .setnoavailable').on('click', function (){
+        var nostockid = $noavailabledisco.data('id');
+        $.ajax({
+            method: 'POST',
+            url: 'programador.php',
+            data: {noavailabledisco: nostockid}
+        }).done(function(){
+            $noavailabledisco.dialog('close');
+            $('.resultados').load('programador.php', {todos: "true"});
+        });
+
+    });
+
+    $('#noavailablenostockdisco .setnoavailable').on('click', function (){
+        var nostockid = $nostnoavdisco.data('id');
+        $.ajax({
+            method: 'POST',
+            url: 'programador.php',
+            data: {noavailabledisco: nostockid}
+        }).done(function(){
+            $nostnoavdisco.dialog('close');
+            $('.resultados').load('programador.php', {todos: "true"});
+        });
+
+    });
+
+    //DIALOG PONER EN STOCK ALABES
+
+    var $sad = $('#sistockdisco');
+    var $spd = $('#siavailabledisco');
+    $sad.dialog({
+        title: 'Agregar disco a stock',
+        autoOpen: false,
+        modal: true,
+        minWidth: 400
+    });
+
+    $spd.dialog({
+        title: 'Agregar disco disponible para producción',
+        autoOpen: false,
+        modal: true,
+        minWidth: 400
+    });
+
+    $('body') .on('click', '.disco .nostock', function(e){
+        e.stopPropagation();
+        var id=$(this).closest('.row').attr('id');
+        var nameplate = $(this).parent().find('h5').text();
+        if ($sad.find('.nameplate-disco').length>0){
+            $('.nameplate-disco').remove();
+        }
+        $sad.data('id', id).prepend('<p class="nameplate-disco">'+nameplate+'</p>').dialog('open');
+    });
+
+    $('body') .on('click', '.disco .noavailable', function(e){
+        e.stopPropagation();
+        var id=$(this).closest('.row').attr('id');
+        var nameplate = $(this).parent().find('h5').text();
+        if ($spd.find('.nameplate-disco').length>0){
+            $('.nameplate-disco').remove();
+        }
+        $spd.data('id', id).prepend('<p class="nameplate-disco">'+nameplate+'</p>').dialog('open');
+    });
+
+    $('#sistockdisco .setstock').on('click', function (){
+        var stockid = $sad.data('id');
+        $.ajax({
+            method: 'POST',
+            url: 'programador.php',
+            data: {sistockdisco: stockid}
+        }).done(function(){
+            $sad.dialog('close');
+            $('.resultados').load('programador.php', {todos: "true"});
+        });
+
+    });
+
+    $('#siavailabledisco .setavailable').on('click', function (){
+        var stockid = $spd.data('id');
+        $.ajax({
+            method: 'POST',
+            url: 'programador.php',
+            data: {siavailabledisco: stockid}
+        }).done(function(){
+            $spd.dialog('close');
+            $('.resultados').load('programador.php', {todos: "true"});
+        });
+
+    });
+
+
+
+
+
 
     //DIALOG METER TODAS LAS ETAPAS A LA VEZ
     var $todas = $('#dialogtodas');
@@ -177,85 +484,42 @@ $(document).ready(function(){
         }
     });    
 
-    $('body').on('click', '.disco', function(){
-    	var id=$(this).parent().attr('id');
-    	var nameplate = $(this).find('h4').text();
+ 
 
-    	if ($(this).find('i.nostock').length===0){
-    		if ($nd.find('.nameplate-disco').length>0){
-    			$('.nameplate-disco').remove();
-    		}	
-    		$nd.data('id', id).prepend('<p class="nameplate-disco">'+nameplate+'</p>').dialog('open');
-    	}	
-    });
+    //DIALOG PARTE YA SUMINISTRADA AL BORRAR
 
-    $('#nostockdisco .setnostock').on('click', function (){
-    	var nostockid = $('#nostockdisco').data('id');
-    	$.ajax({
-    		method: 'POST',
-    		url: 'programador.php',
-    		data: {nostockdisco: nostockid}
-    	}).done(function(){
-    		$nd.dialog('close');
-    		$('.resultados').load('programador.php', {todos: "true"});
-    	});
+    var $ys = $('#yasuministrado');
+    $ys.dialog({
+        title: 'Eliminar parte suministrada',
+        autoOpen: false,
+        modal: true,
+        minWidth: 400,
+        buttons: {
+            'OK': function(){
+                $(this).dialog('close');
+                var id = $(this).data('id');
+                var nameplate = $(this).data('nameplate');
+                var etapa = $(this).data('etapa');
+                $('#borrarprograma').find('.etapaborrar').remove().end().prepend('<p class="etapaborrar">'+nameplate+' '+etapa+'</p>').data('id', id).dialog('open');
+                $('#borrarprograma').dialog('open');
+            },
+            'CANCELAR': function(){
+                $(this).dialog('close');
+            }
+        }
+    });      
 
-    }); 
+
 
    //BOTON PARA CERRAR TODOS LOS DIALOG DE STOCK
 
     $('.closenostock').on('click', function(){
-    	$('#nostockalabes, #nostockdisco, #sistockalabes, #sistockdisco').dialog('close');
+    	$('#nostockalabes, #noavailablealabes, #nostockdisco, #noavailabledisco, #sistockalabes, #sistockdisco, #siavailabledisco, #noavailablenostockdisco, #noavailablenostockalabes').dialog('close');
     });  
 
-    //DIALOG PONER EN STOCK ALABES
+ 
 
-    var $sa = $('#sistockalabes');
-    $sa.dialog({
-    	title: 'Agregar stock',
-    	autoOpen: false,
-    	modal: true,
-    	minWidth: 400
-    });    
-
-    //click en ficha del alabe. Cogemos el id de su parent row que tiene un atributo id="xx".   
-    $('body') .on('click', '.alabe', function(){
-    	var id=$(this).parent().attr('id');
-    	var nameplate = $(this).find('h4').text();
-    	if($(this).find('i.nostock').length===1){
-    		if ($sa.find('.nameplate-alabe').length>0){
-    			$('.nameplate-alabe').remove();
-    		}	    		
-    		$sa.data('id', id).prepend('<p class="nameplate-alabe">'+nameplate+'</p>').dialog('open');
-    	}
-    });
-
-   //click boton dialog set stock alabe
-   
-    $('#sistockalabes .setstock').on('click', function (){
-    	var stockid = $('#sistockalabes').data('id');
-    	$.ajax({
-    		method: 'POST',
-    		url: 'programador.php',
-    		data: {sistockalabes: stockid}
-    	}).done(function(){
-    		$sa.dialog('close');
-    		$('.resultados').load('programador.php', {todos: "true"});
-    	});
-
-    });     
-
-    //DIALOG PONER EN STOCK DISCO
-
-    var $sd = $('#sistockdisco');
-    $sd.dialog({
-    	title: 'Agregar stock',
-    	autoOpen: false,
-    	modal: true,
-    	minWidth: 400
-    }); 
-
-    //DIALOG PARTE YA SUMINISTRADA AL BORRAR
+   //DIALOG PARTE YA SUMINISTRADA AL BORRAR
 
     var $ys = $('#yasuministrado');
     $ys.dialog({
@@ -321,39 +585,7 @@ $(document).ready(function(){
             }
 
         }
-    });   
-
-
-    //click en ficha del disco. Cogemos el id de su parent row que tiene un atributo id="xx".
-    $('body') .on('click', '.disco', function(){
-    	var id=$(this).parent().attr('id');
-    	var nameplate = $(this).find('h4').text();
-    	if($(this).find('i.nostock').length===1){
-    		if ($sd.find('.nameplate-disco').length>0){
-    			$('.nameplate-disco').remove();
-    		}	    		
-    		$sd.data('id', id).prepend('<p class="nameplate-disco">'+nameplate+'</p>').dialog('open');
-    	}
-    });    
-
-   //click boton dialog set stock disco
-    $('#sistockdisco .setstock').on('click', function (){
-    	//cogemos el data-id del dialog, que le hemos pasado justo antes de abrirlo 
-    	var stockid = $('#sistockdisco').data('id');
-    	$.ajax({
-    		method: 'POST',
-    		url: 'programador.php',
-    		data: {sistockdisco: stockid}
-    	}).done(function(){
-    		$sd.dialog('close');
-    		$('.resultados').load('programador.php', {todos: "true"});
-    	});
-
-    });           
-  
-    $('.closenostock').on('click', function(){
-    	$('#nostockalabes, #nostockdisco, #sistockalabes, #sistockdisco').dialog('close');
-    });  
+    }); 
 
     $('form.dialog-programador').on('submit', function(event) {
 
@@ -366,8 +598,6 @@ $(document).ready(function(){
     }); 
 
     //FORM SUBIR EXCEL
-
-
 
     $('#subir-faltantes').on('click', function(){
         $('#modal-excel').modal('show');

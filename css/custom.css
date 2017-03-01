@@ -640,6 +640,19 @@ i.eliminar-programa {
 	color: #34495E;
 	top: 5%;
 	right: 5%;
+	font-size: 150%;
+}
+
+.noavailable {
+	position: absolute;
+	color: #34495E;
+	top: 5%;
+	right: 15%;
+	font-size: 150%;
+}
+
+i.nostock, i.noavailable {
+	font-size: 150%;
 }
 
 .suministrado {

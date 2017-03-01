@@ -38,10 +38,22 @@ if (isset($_POST['nostockalabe'])){
 	$alabe->setStockAlabe($id, 0);
 }
 
+if (isset($_POST['noavailablealabe'])){
+	$id=$_POST['noavailablealabe'];
+	$disco = new Programador();
+	$disco->setAvailabilityAlabes($id, 0);
+}
+
 if (isset($_POST['nostockdisco'])){
 	$id=$_POST['nostockdisco'];
 	$disco = new Programador();
 	$disco->setStockDisco($id, 0);
+}
+
+if (isset($_POST['noavailabledisco'])){
+	$id=$_POST['noavailabledisco'];
+	$disco = new Programador();
+	$disco->setAvailabilityDisco($id, 0);
 }
 
 if (isset($_POST['sistockalabes'])){
@@ -50,10 +62,22 @@ if (isset($_POST['sistockalabes'])){
 	$alabe->setStockAlabe($id, 1);
 }
 
+if (isset($_POST['siavailablealabes'])){
+    $id=$_POST['siavailablealabes'];
+    $alabe = new Programador();
+    $alabe->setAvailabilityAlabes($id, 1);
+}
+
 if (isset($_POST['sistockdisco'])){
-	$id=$_POST['sistockdisco'];
-	$disco = new Programador();
-	$disco->setStockDisco($id, 1);
+    $id=$_POST['sistockdisco'];
+    $disco = new Programador();
+    $disco->setStockDisco($id, 1);
+}
+
+if (isset($_POST['siavailabledisco'])){
+    $id=$_POST['siavailabledisco'];
+    $disco = new Programador();
+    $disco->setAvailabilityDisco($id, 1);
 }
 
 if (isset($_POST['suministradosProgramador'])){
