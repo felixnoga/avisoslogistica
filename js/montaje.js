@@ -387,10 +387,13 @@ $(document).ready(function(){
     //MODAL QUE MUESTRA LOS DISCOS PARA CONSUMIR
     $('body').on('click', 'a[href="consumo-disco"]', function(e){
         e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+		if(!$('.listado-discos').is(':visible')) {
+            $('.listado-discos').fadeIn();
+		}    
+		if($('.nameplate-listado span.error').length) {
+            $('.nameplate-listado span.error').remove();
+		}  		     
         $('#nameplate-listado-discos').val('');
-        if($('.etapa').length) {
-        	$('.etapa').fadeOut();
-        }
         $.post('almacen.php', {discosparaconsumir: true})
             .done(function (data) {
                 if (data.length>0) {
@@ -406,8 +409,10 @@ $(document).ready(function(){
 
     $('body').on('click', '.listado-en-buffer', function () {
 		var id = $(this).attr('id');
+		$('#trabajando').modal('show');
 		$.post('almacen.php', {quitarbuffer: 1, id: id})
 			.done(function(data){
+			$('#trabajando').modal('hide');				
                 if (data.length>0) {
                     var num= data.length;                    
                 }
@@ -419,8 +424,10 @@ $(document).ready(function(){
     $('body').on('click', '.enviar-consumo-disco', function () {
         var nameplate = $('#nameplate-listado-discos').val();
         var etapa = $('#etapa-listado-discos').val();
+		$('#trabajando').modal('show');        
         $.post('almacen.php', {quitarbufferysuministro: 1,  nameplate: nameplate, etapa: etapa})
             .done(function(data){
+				$('#trabajando').modal('hide');            	
                 if (data.error==0) {
                 	$('#consumo-discos').modal('hide');
                 	$('#ok-consumo-discos').modal('show');
@@ -505,6 +512,12 @@ $(document).ready(function(){
     $('body').on('click', 'a[href="consumo-alabes"]', function(e){
         e.preventDefault ? e.preventDefault() : (e.returnValue = false);
         $('#nameplate-listado-alabes').val('');
+		if(!$('.listado-alabes').is(':visible')) {
+            $('.listado-alabes').fadeIn();
+		}    
+		if($('.nameplate-listado-alabes span.error').length) {
+            $('.nameplate-listado-alabes span.error').remove();
+		}  	       
         $.post('almacen.php', {alabesparaconsumir: true})
             .done(function (data) {
                 if (data.length>0) {
@@ -518,8 +531,10 @@ $(document).ready(function(){
 
     $('body').on('click', '.listado-en-buffer-alabes', function () {
         var id = $(this).attr('id');
+		$('#trabajando').modal('show');        
         $.post('almacen.php', {quitarbufferalabes: 1, id: id})
             .done(function(data){
+			$('#trabajando').modal('hide');            	
                     var num= data.length;
                     $('#consumo-alabes').modal('hide');
                     $('#ok-consumo-alabes').modal('show');
@@ -530,8 +545,10 @@ $(document).ready(function(){
     $('body').on('click', '.enviar-consumo-alabes', function () {
         var nameplate = $('#nameplate-listado-alabes').val();
         var etapa = $('#etapa-listado-alabes').val();
+		$('#trabajando').modal('show');        
         $.post('almacen.php', {quitarbufferysuministroalabes: 1,  nameplate: nameplate, etapa: etapa})
             .done(function(data){
+			$('#trabajando').modal('hide');            	
                 if (data.error==0) {
                     $('#consumo-alabes').modal('hide');
                     $('#ok-consumo-alabes').modal('show');
@@ -621,6 +638,12 @@ $(document).ready(function(){
     	e = $.event.fix(e);
         e.preventDefault();
         $('#nameplate-listado-ngvs').val('');
+		if(!$('.listado-ngvs').is(':visible')) {
+            $('.listado-ngvs').fadeIn();
+		}    
+		if($('.nameplate-listado-ngvs span.error').length) {
+            $('.nameplate-listado-ngvs span.error').remove();
+		}  	        
         $.post('almacen.php', {ngvsparaconsumir: true})
             .done(function (data) {
                 if (data.length>0) {
@@ -634,8 +657,10 @@ $(document).ready(function(){
 
     $('body').on('click', '.listado-en-buffer-ngvs', function () {
         var id = $(this).attr('id');
+		$('#trabajando').modal('show');        
         $.post('almacen.php', {quitarbufferngvs: 1, id: id})
             .done(function(data){
+        			$('#trabajando').modal('hide');
                     var num= data.length;
                     $('#consumo-ngvs').modal('hide');
                     $('#ok-consumo-ngvs').modal('show');
@@ -646,11 +671,21 @@ $(document).ready(function(){
     $('body').on('click', '.enviar-consumo-ngvs', function () {
         var nameplate = $('#nameplate-listado-ngvs').val();
         var etapa = $('#etapa-listado-ngvs').val();
+		$('#trabajando').modal('show');        
         $.post('almacen.php', {quitarbufferysuministrongvs: 1,  nameplate: nameplate, etapa: etapa})
             .done(function(data){
+			$('#trabajando').modal('hide'); 
+			console.log(data);          	
                 if (data.error==0) {
                     $('#consumo-ngvs').modal('hide');
                     $('#ok-consumo-ngvs').modal('show');
+                }
+                else if (data.error==1) {
+                	$('input#nameplate-listado-ngvs').val('');
+                	$('.nameplate-listado-ngvs').append('<span class="error">No existe este juego de NGV\'s en programación. Por favor revisa los campos.</span>');
+                	if ($('.etapa-ngvs').length) {
+                		$('.etapa-ngvs').fadeOut();
+                	}                	
                 }
             });
     });
@@ -1115,7 +1150,7 @@ $(document).ready(function(){
 		//alert(valor);
 		//alert(!/^D5/i.test(valor));
 		if (!/^DE/i.test(valor)){
-			if (/^D[^5]\d+/i.test(valor)){
+			if (/^D[^E]\d+/i.test(valor)){
 				valor2=valor.replace(/^D/i, 'DE');
 				$input.val(valor2);
 			}

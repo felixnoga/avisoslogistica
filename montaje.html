@@ -180,24 +180,24 @@
 			<p >Almacén ya tiene constancia de que se ha consumido el soporte.</p>
 		</div>
 		<div id="caseipconsumido" style="display: none">
-			<h4>Soporte HP/IP consumido correctamente.</h4>
+			<h4>Carcasa IP consumido correctamente.</h4>
 			<hr/>
-			<p >Almacén ya tiene constancia de que se ha consumido el soporte.</p>
+			<p >Almacén ya tiene constancia de que se ha consumido la carcasa.</p>
 		</div>
 	
 		<div id="confirmconsumirngvlp1" style="display: none">
 			<h4>Consumir juego de NGV'S LP1.</h4>
 			<hr/>
-			<p >Introduce el nameplate que se va a consumir <strong>(el que se va a montar)</strong></p>
+			<p >Introduce el nuúmero de serie del módulo para el que se va a consumir <strong>(el que se va a montar)</strong></p>
 			<form>
-				<input type="text"></input>
+				<input type="text">
 			</form>
 		</div>
 
 		<div id="confirmconsumirngvip" style="display: none">
 			<h4>Consumir juego de NGV'S IP.</h4>
 			<hr/>
-			<p>Introduce el nameplate que se va a consumir <strong>(el que se va a montar)</strong></p>
+			<p>Introduce el nuúmero de serie del módulo para el que se va a consumir <strong>(el que se va a montar)</strong></p>
 			<form>
 				<input type="text"></input>
 			</form>
@@ -205,7 +205,7 @@
 		<div id="confirmconsumirsoporte" style="display: none">
 			<h4>Consumir Soporte HP/IP.</h4>
 			<hr/>
-			<p>Introduce el nameplate que se va a consumir <strong>(el que se va a montar)</strong></p>
+			<p>Introduce el nuúmero de serie del módulo para el que se va a consumir <strong>(el que se va a montar)</strong></p>
 			<form>
 				<input type="text"></input>
 			</form>
@@ -213,7 +213,7 @@
 		<div id="confirmconsumircaseip" style="display: none">
 			<h4>Consumir Carcasa IP.</h4>
 			<hr/>
-			<p>Introduce el nameplate que se va a consumir <strong>(el que se va a montar)</strong></p>
+			<p>Introduce el nuúmero de serie del módulo para el que se va a consumir <strong>(el que se va a montar)</strong></p>
 			<form>
 				<input type="text"></input>
 			</form>
@@ -359,7 +359,7 @@
 							<h4>Consumo manual</h4>
 							<p>Si tus NGV'S no están en el listado de arriba (no ha sido suministrados por almacén) , introduce los datos manualmente:</p>
 							<form>
-								<div class="form-group nameplate-listado-alabes">
+								<div class="form-group nameplate-listado-ngvs">
 									<label for="nameplate-listado-ngvs">Nameplate: </label>
 									<input type="text" class="form-control" id="nameplate-listado-ngvs" placeholder="Introduce serial number..">
 								</div>
@@ -469,6 +469,19 @@
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
+
+	<!--MODAL TRABAJANDO-->
+	<div class="modal fade" tabindex="-1" id="trabajando" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+
+				<div class="modal-body">
+					<p class="text-center">Trabajando...</p>
+					<p class="text-center"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></p>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->		
 
 						
 	</body>

@@ -203,7 +203,7 @@ class Almacen {
     public function suministrarDiscoDesdeMontaje($nameplate, $etapa){
 
         $time = time();
-        $stm= $this->pdo->prepare('SELECT COUNT(*) as numero FROM programador WHERE nameplate=:nameplate AND disco_piezas_id_pieza=:etapa');
+        $stm= $this->pdo->prepare('SELECT COUNT(*) as numero FROM programador WHERE nameplate=:nameplate AND disco_piezas_id_pieza=:etapa AND suministrado_disco=0');
         $stm->execute(array(':nameplate'=>$nameplate, ':etapa'=>$etapa));
         $resultado = $stm->fetch(\PDO::FETCH_ASSOC);
         $numero=$resultado['numero'];
@@ -216,8 +216,29 @@ class Almacen {
         $stm = $this->pdo->prepare('UPDATE programador SET suministrado_disco=1, enbuffer=0, time_last_suministro=:time WHERE nameplate= :nameplate AND disco_piezas_id_pieza = :etapa');
         $stm->execute(array(':time'=>$time, ':nameplate'=>$nameplate, ':etapa'=>$etapa));
         //PEDIR NGV AL SUMINISTRAR UN DISCO YA QUE NO SE PONE AVISO DE INSPECCIÓN. EL CHEQUEO LO HACE LA FUNCIÓN insertarNgv (etapa distinta a la LP1)
-        $this->insertarNgv(trim($nameplate), ($etapa));
-
+		switch ($etapa) {
+			case 1:
+				$etapa='LP1';
+				break;
+			case 2:
+				$etapa='LP2';
+				break;	
+			case 3:
+				$etapa='LP3';
+				break;
+			case 4:
+				$etapa='LP4';
+				break;
+			case 5:
+				$etapa='LP5';
+				break;	
+			case 6:
+				$etapa='LP6';
+				break;																		
+		}     
+		if ($etapa!='LP1'){
+	        $this->insertarNgv(trim($nameplate), trim($etapa));
+		}   
         Response::create(json_encode($array), Response::HTTP_OK, array('Content-Type'=>'application/json'))->send();
     }
 
@@ -233,10 +254,43 @@ class Almacen {
         Response::create(json_encode($data), Response::HTTP_OK, array('Content-Type'=>'application/json'))->send();;
 	}
 
-	public function restarBufferDisco ($id) {
+	public function restarBufferDiscoAlmacen ($id) {
 		$stm = $this->pdo->query("UPDATE programador SET enbuffer=0 WHERE id=$id");
 		$resultado=$stm->fetch(\PDO::FETCH_ASSOC);
 	}
+
+	public function restarBufferDiscoMontaje ($id) {
+		$stm=$this->pdo->query("SELECT nameplate, disco_piezas_id_pieza FROM programador WHERE id=$id");
+		$resultado = $stm->fetch(\PDO::FETCH_ASSOC);
+		$nameplate = $resultado['nameplate'];
+		$pieza = (int)$resultado['disco_piezas_id_pieza'];
+		switch ($pieza) {
+			case 1:
+				$etapa='LP1';
+				break;
+			case 2:
+				$etapa='LP2';
+				break;	
+			case 3:
+				$etapa='LP3';
+				break;
+			case 4:
+				$etapa='LP4';
+				break;
+			case 5:
+				$etapa='LP5';
+				break;	
+			case 6:
+				$etapa='LP6';
+				break;																		
+		}
+		if ($etapa!='LP1'){
+			$this->insertarNgv($nameplate, $etapa);		
+		}		
+
+		$stm = $this->pdo->query("UPDATE programador SET enbuffer=0 WHERE id=$id");
+		$resultado=$stm->fetch(\PDO::FETCH_ASSOC);
+	}	
 
 	public function restarBufferNgv ($id) {
 		$stm = $this->pdo->query("UPDATE ngvs SET enbufferngv=0 WHERE id=$id");
@@ -268,12 +322,20 @@ class Almacen {
     }
 
     public function restarBufferNgvsSinSuministrar ($nameplate, $etapa){
-    	var_dump($nameplate);
-    	var_dump($etapa);
-        $stm = $this->pdo->prepare("UPDATE ngvs SET enbufferngv=0, suministrado=1 WHERE nameplate=:nameplate AND etapa=:etapa");
-        if($stm->execute(array(':nameplate'=>$nameplate, ':etapa'=>$etapa))) {
-            Response::create(json_encode(array('error'=>0)), Response::HTTP_OK, array('Content-Type'=>'application/json'))->send();
-        }
+    	$stm = $this->pdo->prepare("SELECT COUNT(*) as numero FROM ngvs WHERE nameplate=:nameplate AND etapa=:etapa AND suministrado=0");
+    	$stm->execute(array(':nameplate'=>$nameplate, ':etapa'=>$etapa));
+		$resultado = $stm->fetch(\PDO::FETCH_ASSOC);
+		$contador = $resultado['numero'];
+		if($contador != 0){
+	        $stm = $this->pdo->prepare("UPDATE ngvs SET enbufferngv=0, suministrado=1 WHERE nameplate=:nameplate AND etapa=:etapa");
+	        if($stm->execute(array(':nameplate'=>$nameplate, ':etapa'=>$etapa))) {
+	            Response::create(json_encode(array('error'=>0)), Response::HTTP_OK, array('Content-Type'=>'application/json'))->send();
+	        }			
+		}
+		else {
+			Response::create(json_encode(array('error'=>1)), Response::HTTP_OK, array('Content-Type'=>'application/json'))->send();
+		}
+
     }
 
 	public function insertarNgv ($nameplate, $etapa){
@@ -419,9 +481,6 @@ class Almacen {
 			$requerido = date("H:i (d", $resultados['time_pedido']);
 			$requerido.=" $mes)";
 			$data['time']=$requerido;
-			$stm2=$this->pdo->query("SELECT caseip FROM cajas_vacias");
-			$resultado=$stm2->fetch(\PDO::FETCH_ASSOC);
-			$data['vacias']=$resultado['caseip'];
             Response::create(json_encode($data), Response::HTTP_OK, array('Content-Type'=>'application/json'))->send();;
 		}
 		else {
@@ -442,9 +501,6 @@ class Almacen {
 			$requerido = date("H:i (d", $resultados['time_pedido']);
 			$requerido.=" $mes)";
 			$data['time']=$requerido;
-			$stm2=$this->pdo->query("SELECT soporte FROM cajas_vacias");
-			$resultado=$stm2->fetch(\PDO::FETCH_ASSOC);
-			$data['vacias']=$resultado['soporte'];
             Response::create(json_encode($data), Response::HTTP_OK, array('Content-Type'=>'application/json'))->send();
 		}
 		else {
@@ -456,7 +512,7 @@ class Almacen {
 
 	public function addNextBladeIp ($nameplate){
 		$nameplatemodified = (int)substr($nameplate, -4)+1;
-		$newnameplate = 'D5'.$nameplatemodified;
+		$newnameplate = 'DE'.$nameplatemodified;
 		$now = time();
 		try {
 			if($stm=$this->pdo->prepare("DELETE * FROM alabes_ip")) {
@@ -475,7 +531,7 @@ class Almacen {
 
     public function addNextSoporte ($nameplate){
         $nameplatemodified = (int)substr($nameplate, -4)+1;
-        $newnameplate = 'D5'.$nameplatemodified;
+        $newnameplate = 'DE'.$nameplatemodified;
         $now = time();
         try {
             if($stm=$this->pdo->prepare("DELETE * FROM alabes_ip")) {
@@ -502,9 +558,6 @@ class Almacen {
 			$requerido = date("H:i (d", $resultados['time_pedido']);
 			$requerido.=" $mes)";
 			$data['time']=$requerido;
-			$stm2=$this->pdo->query("SELECT alabesip FROM cajas_vacias");
-			$resultado=$stm2->fetch(\PDO::FETCH_ASSOC);
-			$data['vacias']=$resultado['alabesip'];
             Response::create(json_encode($data), Response::HTTP_OK, array('Content-Type'=>'application/json'))->send();
 		}
 		else {
@@ -628,7 +681,7 @@ class Almacen {
     }	      
 	public function addNextNgvLp1 ($nameplate){
 		$nameplatemodified = (int)substr($nameplate, -4)+1;
-		$newnameplate = 'D5'.$nameplatemodified;
+		$newnameplate = 'DE'.$nameplatemodified;
 		$now = time();
 		$data=array();
 		try {
@@ -651,7 +704,7 @@ class Almacen {
 
 	public function addNextNgvIp ($nameplate){
 		$nameplatemodified = (int)substr($nameplate, -4)+1;
-		$newnameplate = 'D5'.$nameplatemodified;
+		$newnameplate = 'DE'.$nameplatemodified;
 		$now = time();
 		$data=array();
 		try {
@@ -673,9 +726,8 @@ class Almacen {
 
     public function addNextCaseIp ($nameplate){
         $nameplatemodified = (int)substr($nameplate, -4)+1;
-        $newnameplate = 'D5'.$nameplatemodified;
+        $newnameplate = 'DE'.$nameplatemodified;
         $now = time();
-        $data=array();
         try {
             $stm=$this->pdo->prepare("DELETE FROM case_ip");
             $stm->execute();

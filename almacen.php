@@ -237,7 +237,7 @@ if(isset($_POST['deshaceralabes'])) {
 
 if(isset($_POST['removedisco']) && isset($_POST['id'])) {
 	$buffer=new Almacen();
-	$buffer->restarBufferDisco($_POST['id']);
+	$buffer->restarBufferDiscoAlmacen($_POST['id']);
 }
 
 if(isset($_POST['removealabes']) && $_POST['removealabes']==1) {
@@ -271,7 +271,7 @@ if (isset($_POST['alabesparaconsumir'])) {
 }
 if (isset($_POST['quitarbuffer'])) {
     $alabes= new Almacen();
-    $alabes->restarBufferDisco($_POST['id']);
+    $alabes->restarBufferDiscoMontaje($_POST['id']);
     $alabes->getBufferDiscos();
 }
 
