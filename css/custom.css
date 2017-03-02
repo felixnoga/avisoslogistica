@@ -1020,11 +1020,12 @@ margin-top: 20px;
 #sidebar-wrapper {
 		z-index: 1000;
 		position: fixed;
-		left: 300px;
+		left: 310px;
 		width: 0;
 		height: 100%;
-		margin-left: -300px;
+		margin-left: -310px;
 		background: #34495e url("../img/sidebar-background.png") no-repeat left top;
+	overflow: scroll;
 
 		border-right: 1px solid #0f0f0f;
 		-webkit-transition: all 0.5s ease;
@@ -1084,7 +1085,7 @@ margin-top: 20px;
 
 @media screen and (min-width:768px) {
 	#sidebar-wrapper {
-		width: 300px;
+		width: 310px;
 	}
 }
 @media screen and (max-width: 767px) {
@@ -1094,7 +1095,7 @@ margin-top: 20px;
 }
 @media (min-width: 768px) {
 	#wrapper {
-		padding-left: 300px;
+		padding-left: 310px;
 	}
 }
 .modal-header {

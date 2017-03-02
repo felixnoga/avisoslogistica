@@ -47,20 +47,17 @@ if(in_Array($extension, ['xls', 'xlsx'])) {
 	                $row_componente = $cell->getRow();
 	            }
 	            if (isset($columna_componente) && isset($columna_serie) && isset($row_serie) && isset($row_componente)) {
-	            	                echo $columna_serie;
-	                echo $row_serie;
-	                echo $columna_componente;
-	                echo $row_componente;
 	                break 2;
-
 	            }
-
-
 	        }
 	    }
 
+
+
 		$pdo->query('UPDATE programador SET stock_disco=1 WHERE suministrado_disco=0 AND tipos_motor_id_tipo=1');
-		$pdo->query('UPDATE programador SET stock_alabe=1 WHERE suministrado_alabe=0 AND tipos_motor_id_tipo=1');    	
+		$pdo->query('UPDATE programador SET stock_alabe=1 WHERE suministrado_alabe=0 AND tipos_motor_id_tipo=1');
+		$fecha = date('d/M/Y H:i');
+	    $pdo->query("UPDATE fecha_archivo SET fecha_t700='$fecha'");
 
 		for ($i=$row_serie+1; $i<=$max_row; $i++) {
 			if (preg_match("/D[H8]/i", $worksheet->getCell($columna_serie.$i)->getValue())) {
@@ -68,7 +65,7 @@ if(in_Array($extension, ['xls', 'xlsx'])) {
 					$seriemodulo=preg_replace("/D8/i", "DH", $worksheet->getCell($columna_serie.$i)->getValue());
 				}
 				else if (preg_match("/DH/i", $worksheet->getCell($columna_serie.$i)->getValue())) {
-					$seriemodulo = $worksheet->getCell($columna_serie.$i)->getValue(); 
+					$seriemodulo = $worksheet->getCell($columna_serie.$i)->getValue();
 				}
 			}
 			if ($worksheet->getCell($columna_componente.$i)->getValue()!=='' || $worksheet->getCell($columna_componente.$i).getValue()!==NULL) {
@@ -79,11 +76,17 @@ if(in_Array($extension, ['xls', 'xlsx'])) {
 		        }
     	        foreach ($alabesforcheck as $array) {
 		            if($array['material']==$worksheet->getCell($columna_componente.$i)->getValue() && $array['nameplate']==$seriemodulo) {
+                        $worksheet->getCell($columna_componente.$i)->getValue();
 		                $stm=$pdo->query("UPDATE programador SET stock_alabe=0 WHERE id=".(int)$array['id']."");
 		            }
 	       		}				
 			}
 		}
+        $files = glob('uploads/*'); // get all file names
+        foreach($files as $file){ // iterate files
+            if(is_file($file))
+                unlink($file); // delete file
+        }
     }
 
     else {
@@ -114,7 +117,10 @@ if(in_Array($extension, ['xls', 'xlsx'])) {
 
 	    $pdo->query('UPDATE programador SET stock_disco=1 WHERE suministrado_disco=0 AND tipos_motor_id_tipo!=1');
 		$pdo->query('UPDATE programador SET stock_alabe=1 WHERE suministrado_alabe=0 AND tipos_motor_id_tipo!=1');
-	    for ($i=$row_serie+1; $i<=$max_row; $i++) {
+        $fecha = date('d/M/Y H:i');
+        $pdo->query("UPDATE fecha_archivo SET fecha='$fecha'");
+
+        for ($i=$row_serie+1; $i<=$max_row; $i++) {
 	        foreach ($discosforcheck as $array) {
 	            if($array['material']==trim($worksheet->getCell($columna_componente.$i)->getValue()) && $array['nameplate']==trim($worksheet->getCell($columna_serie.$i)->getValue())) {
 	                $stm=$pdo->query("UPDATE programador SET stock_disco=0 WHERE id=".(int)$array['id']."");
@@ -130,5 +136,5 @@ if(in_Array($extension, ['xls', 'xlsx'])) {
 }	
 
 else {
-	echo 'El archivo no es exel';
+	echo 'El archivo no es excel';
 }

@@ -32,6 +32,11 @@ if (isset($_POST['todos'])){
 	$listado->showNoSuministrados();
 }
 
+if (isset($_POST['fechasfaltantes'])) {
+    $fechas = new Programador();
+    $fechas->getFechasFaltantes();
+}
+
 if (isset($_POST['nostockalabe'])){
 	$id=$_POST['nostockalabe'];
 	$alabe = new Programador();

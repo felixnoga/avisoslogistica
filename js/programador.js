@@ -5,6 +5,7 @@ $(document).ready(function(){
 	$('.resultados').load('programador.php', {todos: "true"});
 	$('.programador-tipos').load('programador.php', {programador_tipos_motor: "pedir"});
 	$('.suministrados').load('programador.php', {suministradosProgramador: true});
+	$('.fechas').load('programador.php', {fechasfaltantes: true});
 
     //$('.subir-faltantes').ajaxForm();
 
@@ -608,6 +609,7 @@ $(document).ready(function(){
                 success: function(data){
                     $('#modal-excel').modal('hide');
                     $('.resultados').load('programador.php', {todos: "true"});
+                    $('.fechas').load('programador.php', {fechasfaltantes: true});
                 },
                 url: 'subirexcel.php',
                 type: 'POST'

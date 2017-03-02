@@ -383,6 +383,14 @@ class Programador {
 
 	}
 
+    public function getFechasFaltantes(){
+        $stm = $this->pdo->query('SELECT * from fecha_archivo');
+        $resultados = $stm->fetch(\PDO::FETCH_ASSOC);
+        echo '<p class="subir-faltantes">ULTIMA ACTUALIZACIÓN FALTANTES <strong>T700</strong>: '.$resultados['fecha_t700'];
+        echo '<p class="subir-faltantes">ULTIMA ACTUALIZACIÓN FALTANTES <strong>SAP</strong>: '.$resultados['fecha'];
+
+    }
+
 	public function quitarSuministro($id, $parte) {
 		if ($parte==='disco'){
 			$this->pdo->query("UPDATE programador SET suministrado_disco=0 WHERE id=".$id."");
