@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f578e9c1-1a2e-481d-83ce-53aca94641f7" name="Default" comment="" />
+    <list default="true" id="f578e9c1-1a2e-481d-83ce-53aca94641f7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/programador.html" afterPath="$PROJECT_DIR$/programador.html" />
+    </list>
     <ignored path="avisos.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -11,6 +13,10 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" phpInterpreterId="8ea0cc56-4a07-4f64-a524-64eed0f5b4bc">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <pharPath>C:\ProgramData\ComposerSetup\bin\composer</pharPath>
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -24,21 +30,10 @@
       <file leaf-file-name="subirexcel.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/subirexcel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="197" column="5" lean-forward="false" selection-start-line="197" selection-start-column="5" selection-end-line="197" selection-end-column="5" />
+            <state relative-caret-position="6090">
+              <caret line="203" column="0" lean-forward="false" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
               <folding>
-                <marker date="1488933127874" expanded="true" signature="259:522" ph="SELECT progr... programador" />
-                <marker date="1488933127874" expanded="true" signature="547:810" ph="SELECT progr... programador" />
-                <marker date="1488933127874" expanded="true" signature="2716:2805" ph="UPDATE progr... " />
-                <marker date="1488933127874" expanded="true" signature="2824:2913" ph="UPDATE progr... " />
-                <marker date="1488933127874" expanded="true" signature="2965:3009" ph="UPDATE fecha... " />
-                <marker date="1488933127874" expanded="true" signature="3857:3925" ph="UPDATE progr... " />
-                <marker date="1488933127874" expanded="true" signature="4257:4325" ph="UPDATE progr... " />
-                <marker date="1488933127874" expanded="true" signature="7386:7476" ph="UPDATE progr... " />
-                <marker date="1488933127874" expanded="true" signature="7495:7585" ph="UPDATE progr... " />
-                <marker date="1488933127874" expanded="true" signature="7646:7685" ph="UPDATE fecha... " />
-                <marker date="1488933127874" expanded="true" signature="8006:8074" ph="UPDATE progr... " />
-                <marker date="1488933127874" expanded="true" signature="8367:8435" ph="UPDATE progr... " />
+                <marker date="1488933127874" expanded="true" signature="8651:8656" ph="..." />
               </folding>
             </state>
           </provider>
@@ -47,41 +42,11 @@
       <file leaf-file-name="Programador.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Programador.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="449" column="40" lean-forward="false" selection-start-line="449" selection-start-column="40" selection-end-line="449" selection-end-column="40" />
+            <state relative-caret-position="15360">
+              <caret line="512" column="1" lean-forward="false" selection-start-line="512" selection-start-column="1" selection-end-line="512" selection-end-column="1" />
               <folding>
-                <marker date="1488932222193" expanded="true" signature="397:450" ph="SELECT id_ti... tipos_motor" />
-                <marker date="1488932222193" expanded="true" signature="652:696" ph="SELECT max(o... programador" />
-                <marker date="1488932222193" expanded="true" signature="1116:1164" ph="SELECT id_pi... piezas" />
-                <marker date="1488932222193" expanded="true" signature="1349:1397" ph="SELECT id_pi... piezas" />
-                <marker date="1488932222193" expanded="true" signature="1580:1746" ph="SELECT COUNT... programador" />
-                <marker date="1488932222193" expanded="true" signature="1875:2171" ph="INSERT INTO programador... " />
-                <marker date="1488932222193" expanded="true" signature="2936:3102" ph="SELECT COUNT... programador" />
-                <marker date="1488932222193" expanded="true" signature="3239:3535" ph="INSERT INTO programador... " />
-                <marker date="1488932222193" expanded="true" signature="4040:4206" ph="SELECT COUNT... programador" />
-                <marker date="1488932222193" expanded="true" signature="4343:4639" ph="INSERT INTO programador... " />
-                <marker date="1488932222193" expanded="true" signature="5241:5407" ph="SELECT COUNT... programador" />
-                <marker date="1488932222193" expanded="true" signature="5550:5846" ph="INSERT INTO programador... " />
-                <marker date="1488932222193" expanded="true" signature="6253:6278" ph="SELECT * FRO... tipos_motor" />
-                <marker date="1488932222193" expanded="true" signature="6752:7205" ph="SELECT P.id programador" />
-                <marker date="1488932222193" expanded="true" signature="11134:11594" ph="SELECT P.id programador" />
-                <marker date="1488932222193" expanded="true" signature="15047:15096" ph="UPDATE progr... " />
-                <marker date="1488932222193" expanded="true" signature="15289:15344" ph="UPDATE progr... " />
-                <marker date="1488932222193" expanded="true" signature="15497:15566" ph="UPDATE progr... " />
-                <marker date="1488932222193" expanded="true" signature="15720:15775" ph="UPDATE progr... " />
-                <marker date="1488932222193" expanded="true" signature="15927:15996" ph="UPDATE progr... " />
-                <marker date="1488932222193" expanded="true" signature="16140:16176" ph="DELETE from " />
-                <marker date="1488932222193" expanded="true" signature="16297:16324" ph="SELECT * fro... fecha_archivo" />
-                <marker date="1488932222193" expanded="true" signature="16728:16789" ph="UPDATE progr... " />
-                <marker date="1488932222193" expanded="true" signature="16849:16910" ph="UPDATE progr... " />
-                <marker date="1488932222193" expanded="true" signature="18657:18734" ph="SELECT * FRO... programador" />
-                <marker date="1488932222193" expanded="true" signature="19066:19161" ph="SELECT * FRO... programador" />
-                <marker date="1488932222193" expanded="true" signature="19607:19663" ph="UPDATE progr... " />
-                <marker date="1488932222193" expanded="true" signature="19882:20033" ph="SELECT COUNT... programador" />
-                <marker date="1488932222193" expanded="true" signature="19905:20033" ph="UPDATE progr... " />
-                <marker date="1488932222193" expanded="true" signature="20298:20444" ph="UPDATE progr... " />
-                <marker date="1488932222193" expanded="true" signature="20655:20860" ph="INSERT INTO programador... " />
-                <marker date="1488932222193" expanded="true" signature="20667:20824" ph="UPDATE progr... " />
+                <marker date="1488932222193" expanded="true" signature="158:210" ph="..." />
+                <marker date="1488932222193" expanded="true" signature="21127:21129" ph="..." />
               </folding>
             </state>
           </provider>
@@ -90,9 +55,42 @@
       <file leaf-file-name="programador.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/programador.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="83" column="94" lean-forward="false" selection-start-line="83" selection-start-column="94" selection-end-line="83" selection-end-column="94" />
+            <state relative-caret-position="263">
+              <caret line="262" column="0" lean-forward="true" selection-start-line="262" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="programador.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/programador.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="267">
+              <caret line="306" column="0" lean-forward="true" selection-start-line="306" selection-start-column="0" selection-end-line="306" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="almacen.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/almacen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1488376215834" expanded="true" signature="28667:28680" ph="..." />
+                <marker date="1488376215834" expanded="true" signature="29139:29152" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,8 +99,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>enviarForm</find>
-      <find>form</find>
       <find>wrapper-co</find>
       <find>trigg</find>
       <find>show</find>
@@ -131,7 +127,12 @@
       <find>titulo</find>
       <find>enc</find>
       <find>subir</find>
+      <find>siavai</find>
+      <find>siavailablealabe</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -152,6 +153,9 @@
         <option value="$PROJECT_DIR$/js/programador.js" />
         <option value="$PROJECT_DIR$/src/Programador.php" />
         <option value="$PROJECT_DIR$/subirexcel.php" />
+        <option value="$PROJECT_DIR$/webpack.config.js" />
+        <option value="$PROJECT_DIR$/src/js/programador.js" />
+        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/programador.html" />
       </list>
     </option>
@@ -162,15 +166,29 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpexcel" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+    </include_path>
+  </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="width" value="1924" />
     <option name="height" value="1038" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -196,7 +214,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test2" />
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -206,11 +224,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test2" />
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="avisos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="avisos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -219,13 +269,17 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\test\src\js" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
@@ -312,24 +366,28 @@
       <workItem from="1488375501938" duration="745000" />
       <workItem from="1488412024342" duration="7018000" />
       <workItem from="1488422010692" duration="3549000" />
-      <workItem from="1488919618767" duration="12086000" />
+      <workItem from="1488919618767" duration="12243000" />
+      <workItem from="1488992603608" duration="2045000" />
+      <workItem from="1489401718507" duration="665000" />
+      <workItem from="1489402415930" duration="1262000" />
+      <workItem from="1489403896265" duration="188000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72833000" />
+    <option name="totallyTimeSpent" value="77150000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1924" height="1038" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20021646" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21158008" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -371,41 +429,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/montaje.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
-          <caret line="55" column="41" lean-forward="false" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/almacen.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LineaIntegracion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5640">
-          <caret line="188" column="22" lean-forward="true" selection-start-line="188" selection-start-column="22" selection-end-line="188" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Almacen.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20520">
-          <caret line="684" column="59" lean-forward="false" selection-start-line="684" selection-start-column="59" selection-end-line="684" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/almacen.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4020">
-          <caret line="134" column="52" lean-forward="false" selection-start-line="134" selection-start-column="52" selection-end-line="134" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/almacen.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11940">
@@ -417,7 +440,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29130">
           <caret line="971" column="19" lean-forward="false" selection-start-line="971" selection-start-column="19" selection-end-line="971" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -481,7 +503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1500">
           <caret line="50" column="6" lean-forward="true" selection-start-line="50" selection-start-column="6" selection-end-line="50" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -658,75 +679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21630">
           <caret line="721" column="0" lean-forward="false" selection-start-line="721" selection-start-column="0" selection-end-line="721" selection-end-column="0" />
-          <folding>
-            <marker date="1488412551819" expanded="true" signature="295:677" ph="SELECT P.id programador" />
-            <marker date="1488412551819" expanded="true" signature="2519:2878" ph="SELECT P.id programador" />
-            <marker date="1488412551819" expanded="true" signature="4020:4402" ph="SELECT P.id programador" />
-            <marker date="1488412551819" expanded="true" signature="6156:6515" ph="SELECT P.id programador" />
-            <marker date="1488412551819" expanded="true" signature="7594:7665" ph="UPDATE progr... " />
-            <marker date="1488412551819" expanded="true" signature="8073:8170" ph="UPDATE progr... " />
-            <marker date="1488412551819" expanded="true" signature="8688:8790" ph="SELECT COUNT... programador" />
-            <marker date="1488412551819" expanded="true" signature="8688:8815" ph="SELECT COUNT... programador" />
-            <marker date="1488412551819" expanded="true" signature="9141:9287" ph="UPDATE progr... " />
-            <marker date="1488412551819" expanded="true" signature="10099:10166" ph="SELECT * FRO... programador" />
-            <marker date="1488412551819" expanded="true" signature="10398:10471" ph="SELECT * FRO... programador" />
-            <marker date="1488412551819" expanded="true" signature="10718:10761" ph="UPDATE progr... " />
-            <marker date="1488412551819" expanded="true" signature="10893:10959" ph="SELECT namep... programador" />
-            <marker date="1488412551819" expanded="true" signature="11492:11535" ph="UPDATE progr... " />
-            <marker date="1488412551819" expanded="true" signature="11661:11700" ph="UPDATE ngvs " />
-            <marker date="1488412551819" expanded="true" signature="11784:11833" ph="UPDATE progr... " />
-            <marker date="1488412551819" expanded="true" signature="12007:12109" ph="SELECT COUNT... programador" />
-            <marker date="1488412551819" expanded="true" signature="12441:12561" ph="UPDATE progr... " />
-            <marker date="1488412551819" expanded="true" signature="12886:12984" ph="SELECT COUNT... ngvs" />
-            <marker date="1488412551819" expanded="true" signature="13201:13290" ph="UPDATE ngvs " />
-            <marker date="1488412551819" expanded="true" signature="13808:13914" ph="INSERT INTO ngvs... " />
-            <marker date="1488412551819" expanded="true" signature="14220:14277" ph="SELECT * FRO... ngvs" />
-            <marker date="1488412551819" expanded="true" signature="15270:15335" ph="SELECT * FRO... ngvs" />
-            <marker date="1488412551819" expanded="true" signature="16201:16260" ph="UPDATE ngvs " />
-            <marker date="1488412551819" expanded="true" signature="16500:16576" ph="SELECT id, n... ngvs" />
-            <marker date="1488412551819" expanded="true" signature="19026:19047" ph="DELETE FROM " />
-            <marker date="1488412551819" expanded="true" signature="19309:19351" ph="SELECT namep... case_ip" />
-            <marker date="1488412551819" expanded="true" signature="20071:20116" ph="SELECT namep... soporte_hp" />
-            <marker date="1488412551819" expanded="true" signature="21051:21127" ph="INSERT into alabes_ip... " />
-            <marker date="1488412551819" expanded="true" signature="21685:21762" ph="INSERT into soporte_hp... " />
-            <marker date="1488412551819" expanded="true" signature="22095:22139" ph="SELECT namep... alabes_ip" />
-            <marker date="1488412551819" expanded="true" signature="22858:22900" ph="SELECT namep... ngv_lp1" />
-            <marker date="1488412551819" expanded="true" signature="23278:23309" ph="SELECT ngvlp... cajas_vacias" />
-            <marker date="1488412551819" expanded="true" signature="23768:23809" ph="SELECT namep... ngv_ip" />
-            <marker date="1488412551819" expanded="true" signature="24187:24217" ph="SELECT ngvip... cajas_vacias" />
-            <marker date="1488412551819" expanded="true" signature="24674:24696" ph="DELETE FROM " />
-            <marker date="1488412551819" expanded="true" signature="24953:24972" ph="DELETE FROM " />
-            <marker date="1488412551819" expanded="true" signature="25230:25249" ph="DELETE FROM " />
-            <marker date="1488412551819" expanded="true" signature="25507:25525" ph="DELETE FROM " />
-            <marker date="1488412551819" expanded="true" signature="25786:25805" ph="DELETE FROM " />
-            <marker date="1488412551819" expanded="true" signature="26069:26091" ph="DELETE FROM " />
-            <marker date="1488412551819" expanded="true" signature="26353:26374" ph="DELETE FROM " />
-            <marker date="1488412551819" expanded="true" signature="26635:26657" ph="DELETE FROM " />
-            <marker date="1488412551819" expanded="true" signature="26919:26934" ph="DELETE FROM " />
-            <marker date="1488412551819" expanded="true" signature="27200:27218" ph="DELETE FROM " />
-            <marker date="1488412551819" expanded="true" signature="27621:27640" ph="DELETE FROM " />
-            <marker date="1488412551819" expanded="true" signature="27686:27760" ph="INSERT into ngv_lp1... " />
-            <marker date="1488412551819" expanded="true" signature="27786:27825" ph="UPDATE cajas... " />
-            <marker date="1488412551819" expanded="true" signature="28414:28432" ph="DELETE FROM " />
-            <marker date="1488412551819" expanded="true" signature="28478:28551" ph="INSERT into ngv_ip... " />
-            <marker date="1488412551819" expanded="true" signature="29160:29179" ph="DELETE FROM " />
-            <marker date="1488412551819" expanded="true" signature="29243:29317" ph="INSERT into case_ip... " />
-            <marker date="1488412551819" expanded="true" signature="29814:29936" ph="SELECT tipos... programador" />
-            <marker date="1488412551819" expanded="true" signature="29886:29935" ph="SELECT max(t... programador" />
-            <marker date="1488412551819" expanded="true" signature="30227:30373" ph="UPDATE progr... " />
-            <marker date="1488412551819" expanded="true" signature="30323:30372" ph="SELECT max(t... programador" />
-            <marker date="1488412551819" expanded="true" signature="30416:30562" ph="UPDATE progr... " />
-            <marker date="1488412551819" expanded="true" signature="30512:30561" ph="SELECT max(t... programador" />
-            <marker date="1488412551819" expanded="true" signature="30650:30811" ph="SELECT alabe... programador" />
-            <marker date="1488412551819" expanded="true" signature="30760:30810" ph="SELECT max(t... programador" />
-            <marker date="1488412551819" expanded="true" signature="30849:30998" ph="UPDATE progr... " />
-            <marker date="1488412551819" expanded="true" signature="30947:30997" ph="SELECT max(t... programador" />
-            <marker date="1488412551819" expanded="true" signature="31069:31326" ph="SELECT COUNT... programador" />
-            <marker date="1488412551819" expanded="true" signature="31437:31691" ph="SELECT COUNT... programador" />
-            <marker date="1488412551819" expanded="true" signature="31810:32058" ph="SELECT COUNT... programador" />
-            <marker date="1488412551819" expanded="true" signature="32168:32413" ph="SELECT COUNT... programador" />
-            <marker date="1488412551819" expanded="true" signature="32527:32585" ph="SELECT COUNT... ngvs" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -734,7 +686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5700">
           <caret line="190" column="85" lean-forward="false" selection-start-line="190" selection-start-column="85" selection-end-line="190" selection-end-column="85" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -745,34 +696,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/almacen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2250">
-          <caret line="75" column="35" lean-forward="false" selection-start-line="75" selection-start-column="35" selection-end-line="75" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/pantalla.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/custom.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32910">
           <caret line="1097" column="24" lean-forward="false" selection-start-line="1097" selection-start-column="24" selection-end-line="1097" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/programador.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="611" column="82" lean-forward="false" selection-start-line="611" selection-start-column="82" selection-end-line="611" selection-end-column="82" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -780,76 +707,97 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="36" column="34" lean-forward="false" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Programador.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="449" column="40" lean-forward="false" selection-start-line="449" selection-start-column="40" selection-end-line="449" selection-end-column="40" />
+        <state relative-caret-position="15360">
+          <caret line="512" column="1" lean-forward="false" selection-start-line="512" selection-start-column="1" selection-end-line="512" selection-end-column="1" />
           <folding>
-            <marker date="1488932222193" expanded="true" signature="397:450" ph="SELECT id_ti... tipos_motor" />
-            <marker date="1488932222193" expanded="true" signature="652:696" ph="SELECT max(o... programador" />
-            <marker date="1488932222193" expanded="true" signature="1116:1164" ph="SELECT id_pi... piezas" />
-            <marker date="1488932222193" expanded="true" signature="1349:1397" ph="SELECT id_pi... piezas" />
-            <marker date="1488932222193" expanded="true" signature="1580:1746" ph="SELECT COUNT... programador" />
-            <marker date="1488932222193" expanded="true" signature="1875:2171" ph="INSERT INTO programador... " />
-            <marker date="1488932222193" expanded="true" signature="2936:3102" ph="SELECT COUNT... programador" />
-            <marker date="1488932222193" expanded="true" signature="3239:3535" ph="INSERT INTO programador... " />
-            <marker date="1488932222193" expanded="true" signature="4040:4206" ph="SELECT COUNT... programador" />
-            <marker date="1488932222193" expanded="true" signature="4343:4639" ph="INSERT INTO programador... " />
-            <marker date="1488932222193" expanded="true" signature="5241:5407" ph="SELECT COUNT... programador" />
-            <marker date="1488932222193" expanded="true" signature="5550:5846" ph="INSERT INTO programador... " />
-            <marker date="1488932222193" expanded="true" signature="6253:6278" ph="SELECT * FRO... tipos_motor" />
-            <marker date="1488932222193" expanded="true" signature="6752:7205" ph="SELECT P.id programador" />
-            <marker date="1488932222193" expanded="true" signature="11134:11594" ph="SELECT P.id programador" />
-            <marker date="1488932222193" expanded="true" signature="15047:15096" ph="UPDATE progr... " />
-            <marker date="1488932222193" expanded="true" signature="15289:15344" ph="UPDATE progr... " />
-            <marker date="1488932222193" expanded="true" signature="15497:15566" ph="UPDATE progr... " />
-            <marker date="1488932222193" expanded="true" signature="15720:15775" ph="UPDATE progr... " />
-            <marker date="1488932222193" expanded="true" signature="15927:15996" ph="UPDATE progr... " />
-            <marker date="1488932222193" expanded="true" signature="16140:16176" ph="DELETE from " />
-            <marker date="1488932222193" expanded="true" signature="16297:16324" ph="SELECT * fro... fecha_archivo" />
-            <marker date="1488932222193" expanded="true" signature="16728:16789" ph="UPDATE progr... " />
-            <marker date="1488932222193" expanded="true" signature="16849:16910" ph="UPDATE progr... " />
-            <marker date="1488932222193" expanded="true" signature="18657:18734" ph="SELECT * FRO... programador" />
-            <marker date="1488932222193" expanded="true" signature="19066:19161" ph="SELECT * FRO... programador" />
-            <marker date="1488932222193" expanded="true" signature="19607:19663" ph="UPDATE progr... " />
-            <marker date="1488932222193" expanded="true" signature="19882:20033" ph="SELECT COUNT... programador" />
-            <marker date="1488932222193" expanded="true" signature="19905:20033" ph="UPDATE progr... " />
-            <marker date="1488932222193" expanded="true" signature="20298:20444" ph="UPDATE progr... " />
-            <marker date="1488932222193" expanded="true" signature="20655:20860" ph="INSERT INTO programador... " />
-            <marker date="1488932222193" expanded="true" signature="20667:20824" ph="UPDATE progr... " />
+            <marker date="1488932222193" expanded="true" signature="158:210" ph="..." />
+            <marker date="1488932222193" expanded="true" signature="21127:21129" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/subirexcel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="197" column="5" lean-forward="false" selection-start-line="197" selection-start-column="5" selection-end-line="197" selection-end-column="5" />
+        <state relative-caret-position="6090">
+          <caret line="203" column="0" lean-forward="false" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
           <folding>
-            <marker date="1488933127874" expanded="true" signature="259:522" ph="SELECT progr... programador" />
-            <marker date="1488933127874" expanded="true" signature="547:810" ph="SELECT progr... programador" />
-            <marker date="1488933127874" expanded="true" signature="2716:2805" ph="UPDATE progr... " />
-            <marker date="1488933127874" expanded="true" signature="2824:2913" ph="UPDATE progr... " />
-            <marker date="1488933127874" expanded="true" signature="2965:3009" ph="UPDATE fecha... " />
-            <marker date="1488933127874" expanded="true" signature="3857:3925" ph="UPDATE progr... " />
-            <marker date="1488933127874" expanded="true" signature="4257:4325" ph="UPDATE progr... " />
-            <marker date="1488933127874" expanded="true" signature="7386:7476" ph="UPDATE progr... " />
-            <marker date="1488933127874" expanded="true" signature="7495:7585" ph="UPDATE progr... " />
-            <marker date="1488933127874" expanded="true" signature="7646:7685" ph="UPDATE fecha... " />
-            <marker date="1488933127874" expanded="true" signature="8006:8074" ph="UPDATE progr... " />
-            <marker date="1488933127874" expanded="true" signature="8367:8435" ph="UPDATE progr... " />
+            <marker date="1488933127874" expanded="true" signature="8651:8656" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/almacen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1488376215834" expanded="true" signature="28667:28680" ph="..." />
+            <marker date="1488376215834" expanded="true" signature="29139:29152" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/almacen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="35" lean-forward="false" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pantalla.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/inspecciones.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/programador.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="82" lean-forward="false" selection-start-line="0" selection-start-column="82" selection-end-line="0" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/programador.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="306" column="0" lean-forward="true" selection-start-line="306" selection-start-column="0" selection-end-line="306" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/programador.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="83" column="94" lean-forward="false" selection-start-line="83" selection-start-column="94" selection-end-line="83" selection-end-column="94" />
+        <state relative-caret-position="263">
+          <caret line="262" column="0" lean-forward="true" selection-start-line="262" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
           <folding />
         </state>
       </provider>

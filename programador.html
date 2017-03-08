@@ -18,9 +18,6 @@
         <link rel="stylesheet" href="css/bootstrap-tour.min.css">
 		<link rel="shortcut icon" href="favicon.ico">
 		<link href="css/font-awesome.min.css" rel="stylesheet">
-		<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
-		<link rel="stylesheet" href="css/fileupload/jquery.fileupload.css">
-
 
 		<!-- HTML5 Shim and Respond.js IE8 soporte HTML5 y media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -53,7 +50,7 @@
                     <hr/>
                     <div class="form-group opciones">
                         <label for="etapa-programador">Etapa:</label>
-                        <select name="etapa-programador">
+                        <select name="etapa-programador" id="etapa-programador">
                             <option value="" class="vacio"></option>
                             <option value="LP1">LP1</option>
                             <option value="LP2">LP2</option>
@@ -68,7 +65,7 @@
                     </div>
                     <hr/>
                     <div class="form-group">
-                        <label for="nameplate">Serial Number:</label>
+                        <label for="nameplate-programador">Serial Number:</label>
                         <input type="text" class="form-control" id="nameplate-programador" name="nameplate-programador" placeholder="Introduce Serial Number">
                     </div>
               
@@ -263,12 +260,6 @@
 		<script src="js/programador.js"></script>
 		<script src="js/bootstrap-tour.min.js"></script>
 		<script src="js/tour.js"></script>
-		<script src="js/jQuery.form.js"></script>
-		<script src="js/fileupload/jquery.iframe-transport.js"></script>
-		<!-- The basic File Upload plugin -->
-		<script src="js/fileupload/jquery.fileupload.js"></script>
-		<!-- The File Upload processing plugin -->
-		<script src="js/fileupload/jquery.fileupload-process.js"></script>		
 
 	</body>
 </html>

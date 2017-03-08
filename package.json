@@ -1,0 +1,14 @@
+{
+  "name": "felix",
+  "version": "1.0.0",
+  "description": "Sistema Logistica Almacen",
+  "main": "webpack.config.js",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^2.2.1"
+  },
+  "scripts": {
+    "jsminify": "webpack"
+  },
+  "author": "Félix Nogales"
+}
