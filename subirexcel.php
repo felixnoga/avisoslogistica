@@ -1,7 +1,9 @@
 <?php
 require __DIR__.'/vendor/autoload.php';
+use Almacen\Programador;
 
 $t700pattern="/T700/i";
+$programacion_pattern="/programa/i";
 
 $pdo = new \PDO('sqlite:db/database.db');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -27,6 +29,8 @@ if(in_Array($extension, ['xls', 'xlsx'])) {
 	$phpexcel=$reader->load($destino_completo);
 	$worksheet=$phpexcel->getSheet(0);
 	$max_row= $worksheet->getHighestRow();
+	$max_column = PHPExcel_Cell::columnIndexFromString($worksheet->getHighestColumn());
+
 	$array_datos= array();
 	$t700_columna_modulo_pattern = "/MODULE/i";
 	$resto_columna_modulo_pattern = "/(N|Nº) serie m(o|ó)dulo/i";
@@ -82,11 +86,65 @@ if(in_Array($extension, ['xls', 'xlsx'])) {
 	       		}				
 			}
 		}
-        $files = glob('uploads/*'); // get all file names
-        foreach($files as $file){ // iterate files
-            if(is_file($file))
-                unlink($file); // delete file
-        }
+    }
+
+    else if (preg_match($programacion_pattern, basename($_FILES["excel-faltantes"]["name"]))) {
+    	$array_excel=array();
+    	for($i=0; $i<=$max_column; $i++) {
+    		for ($j=1; $j<=$max_row; $j++) {
+	    		if (preg_match("/^[DHXMYP]/i", $worksheet->getCellByColumnAndRow($i, $j)->getValue())) {
+	    			$array_celda = explode(' ', $worksheet->getCellByColumnAndRow($i, $j)->getValue());
+	    			switch ($array_celda[1]) {
+	    				case 'LP1':
+	    					$disco = 1;
+	    					break;
+	    				case 'LP2':
+	    					$disco = 2;
+	    					break;
+	    				case 'LP3':
+	    					$disco = 3;
+	    					break;
+	    				case 'LP4':
+	    					$disco = 4;
+	    					break;
+	    				case 'LP5':
+	    					$disco = 5;
+	    					break;   
+	    				case 'LP6':
+	    					$disco = 6;
+	    					break;
+	    			}
+	    			if (preg_match('/^D/i', trim($array_celda[0]))) {
+	    			   $tipo_motor=1;
+                    }
+                    else if (preg_match('/^H/i', trim($array_celda[0]))) {
+                        $tipo_motor=2;
+                    }
+                    else if (preg_match('/^M/i', trim($array_celda[0]))) {
+                        $tipo_motor=3;
+                    }
+                    else if (preg_match('/^X/i', trim($array_celda[0]))) {
+                        $tipo_motor=4;
+                    }
+                    else if (preg_match('/^N/i', trim($array_celda[0]))) {
+                        $tipo_motor=5;
+                    }
+                    else if (preg_match('/^P/i', trim($array_celda[0]))) {
+                        $tipo_motor=6;
+                    }
+                    else if (preg_match('/^Y/i', trim($array_celda[0]))) {
+                        $tipo_motor=8;
+                    }
+                    else {
+	    			    $tipo_motor=7;
+                    }
+                    $nameplate = Programador::corregirNameplates($array_celda[0]);
+	    			array_push($array_excel, array('nameplate' => $nameplate, 'etapa' => $disco, 'tipo_motor'=>$tipo_motor));
+    			}
+    		}
+    	}
+    	$prog = new Programador();
+    	$prog->procesarArrayExcelProgramacion($array_excel);
     }
 
     else {
@@ -132,6 +190,11 @@ if(in_Array($extension, ['xls', 'xlsx'])) {
 	            }
 	        }
 	    }    	
+    }
+    $files = glob('uploads/*'); // get all file names
+    foreach($files as $file){ // iterate files
+        if(is_file($file))
+            unlink($file); // delete file
     }
 }	
 

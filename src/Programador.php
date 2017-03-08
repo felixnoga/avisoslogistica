@@ -9,6 +9,8 @@ class Programador {
 
 	public function __construct(){
 		$this->pdo = new \PDO('sqlite:db/database.db');
+		$this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+
 	}
 
 	public function addDiscoAlabes ($etapa, $nameplate, $tipo){
@@ -17,12 +19,17 @@ class Programador {
 		$stm = $this->pdo->prepare('SELECT id_tipo from tipos_motor WHERE id_tipo = :tipo');
 		$stm->execute(array(":tipo"=> $tipo));
 		$resultado=$stm->fetch(\PDO::FETCH_ASSOC);
-		$this->tipo = $resultado['id_tipo'];		
+		$this->tipo = $resultado['id_tipo'];	
+		var_dump($this->tipo);	
 
 		//orden máximo
 		$stm = $this->pdo->query('SELECT max(orden) as maximo FROM programador');
 		$res = $stm->fetch(\PDO::FETCH_ASSOC);
 		$this->orden = $res['maximo']+1;
+		var_dump($this->orden);
+		var_dump($etapa);
+		var_dump($nameplate);
+
 		
 		//chequear que el parámetro $etapa no sea igual a 'todas_etapas' y meter la etapa en particular (el checkbox del incluir todas las etapas no se ha checkeado y se mete la etapa individual seleccionada)
 		if ($etapa!='todas_etapas'){
@@ -90,12 +97,14 @@ class Programador {
 				for ($i=0; $i<6; $i++){
 					$this->id_pieza_disco=$i+1;
 					$this->id_pieza_alabe=$i+46;
+					var_dump($this->id_pieza_disco);
+					var_dump($this->id_pieza_alabe);
 					$stm=$this->pdo->query("SELECT COUNT(*) as cont FROM programador WHERE (disco_piezas_id_pieza=$this->id_pieza_disco OR alabe_piezas_id_pieza=$this->id_pieza_alabe) AND nameplate='$nameplate'");
 					$resultado=$stm->fetch(\PDO::FETCH_ASSOC);
-					$cont=$resultado['cont'];
+					$cont=$resultado['cont'];					
 					if ($cont==0){
-						$stm = $this->pdo->prepare('INSERT INTO programador (disco_piezas_id_pieza, alabe_piezas_id_pieza, nameplate, stock_disco, stock_alabe, suministrado_disco, suministrado_alabe, orden, tipos_motor_id_tipo) VALUES (:iddisco, :idalabe, :nameplate, :stockdisco, :stockalabe, :suministradodisco, :suministradoalabe, :orden, :tipo)');
-						$stm->execute(array(':iddisco' => $this->id_pieza_disco , ':idalabe' => $this->id_pieza_alabe, ':nameplate'=> $nameplate, ':stockdisco' => 1, ':stockalabe'=>1, ':suministradodisco'=> 0, ':suministradoalabe'=> 0,':orden'=> $this->orden, ':tipo'=>$this->tipo));
+						$stmt = $this->pdo->prepare('INSERT INTO programador (disco_piezas_id_pieza, alabe_piezas_id_pieza, nameplate, stock_disco, stock_alabe, suministrado_disco, suministrado_alabe, orden, tipos_motor_id_tipo) VALUES (:iddisco, :idalabe, :nameplate, :stockdisco, :stockalabe, :suministradodisco, :suministradoalabe, :orden, :tipo)');
+						$stmt->execute(array(':iddisco' => $this->id_pieza_disco , ':idalabe' => $this->id_pieza_alabe, ':nameplate'=> $nameplate, ':stockdisco' => 1, ':stockalabe'=>1, ':suministradodisco'=> 0, ':suministradoalabe'=> 0,':orden'=> $this->orden, ':tipo'=>$this->tipo));
 					}						
 				}
 				$this->showNoSuministrados();
@@ -401,6 +410,103 @@ class Programador {
 		else {
 			echo json_encode(array('error'=>'si'));
 		}
+	}
+
+	public static function corregirNameplates ($nameplate) {
+        if (preg_match('/^D8/i', $nameplate)) {
+            return preg_replace('/^D8/i', 'DH', $nameplate);
+        }
+        else if (preg_match('/^D\d/i', $nameplate)) {
+            return preg_replace('/^D/i', 'DH', $nameplate);
+        }
+        else if (preg_match('/^H8/i', $nameplate)) {
+            return preg_replace('/^H8/i', 'HH', $nameplate);
+        }
+        else if (preg_match('/^H\d/i', $nameplate)) {
+            return preg_replace('/^H/i', 'HH', $nameplate);
+        }
+        else if (preg_match('/^X8/i', $nameplate)) {
+            return preg_replace('/^X8/i', 'XG', $nameplate);
+        }
+        else if (preg_match('/^X\d/i', $nameplate)) {
+            return preg_replace('/^X/i', 'XG', $nameplate);
+        }
+        else if (preg_match('/^M8/i', $nameplate)) {
+             return preg_replace('/^M8/i', 'MG', $nameplate);
+        }
+        else if (preg_match('/^M\d/i', $nameplate)) {
+            return preg_replace('/^M/i', 'MG', $nameplate);
+        }
+        else if (preg_match('/^Y\d/i', $nameplate)) {
+            return preg_replace('/^Y/i', 'YH', $nameplate);
+        }
+        else if (preg_match('/^N8/i', $nameplate)) {
+            return preg_replace('/^N8/i', 'NG', $nameplate);
+        }
+        else if (preg_match('/^N\d/i', $nameplate)) {
+            return preg_replace('/^N/i', 'NG', $nameplate);
+        }
+        else {
+            return strtoupper($nameplate);
+        }
+    }
+
+	public function procesarArrayExcelProgramacion ($arrayexcel) {
+
+		/*Borrar del array excel los juegos que ya se han suministrado (tanto disco como alabe) */
+
+		$stm = $this->pdo->query("SELECT * FROM programador WHERE suministrado_disco=1 AND suministrado_alabe=1");
+		$resultados = $stm->fetchAll(\PDO::FETCH_ASSOC);
+		foreach ($resultados as $row) {
+			foreach ($arrayexcel as $index=>$subarray) {
+				if (in_array($row['nameplate'], $subarray) && in_array($row['disco_piezas_id_pieza'], $subarray)) {
+					array_splice($subarray, $index, 1);
+				}
+			}
+		}
+
+
+		
+
+		$stm2 = $this->pdo->query("SELECT * FROM programador WHERE suministrado_disco=0 OR suministrado_alabe=0 ORDER BY orden ASC");
+		$resultados2 = $stm2->fetchAll(\PDO::FETCH_ASSOC);
+		/*Poner al principio de la programación los juegos que no estén en el array excel*/
+		$i=1;
+		foreach ($resultados2 as $row) {
+			$en_array=false;
+			foreach ($arrayexcel as $index=>$subarray) {
+				if (in_array($row['nameplate'], $subarray) && in_array($row['disco_piezas_id_pieza'], $subarray)) {
+					$en_array=true;
+					break;
+				}
+			}
+			if (!$en_array) {
+				$this->pdo->query("UPDATE programador SET orden=$i WHERE id=".$row['id']."");
+				$i++;
+			}
+		}
+		/*Meter todos los juegos del array del excel en db. Si están en db, UPDATE. Si no, INSERT*/
+		$orden = $i;
+		foreach ($arrayexcel as $index => $subarray) {
+            $stma=$this->pdo->prepare("SELECT COUNT(*) AS cont FROM programador WHERE (suministrado_disco=0 OR suministrado_alabe=0) AND nameplate=:nameplate AND disco_piezas_id_pieza=:disco");
+            $stma->execute(array(':nameplate'=>$subarray['nameplate'], ':disco'=>$subarray['etapa']));
+            $cont = $stma->fetch(\PDO::FETCH_ASSOC);
+            $n = (int)$cont['cont'];
+            if ($n===1) {
+                $stm=$this->pdo->prepare("UPDATE programador SET orden=$orden WHERE (suministrado_disco=0 OR suministrado_alabe=0) AND nameplate=:nameplate AND disco_piezas_id_pieza=:disco");
+                $stm->execute(array(':nameplate'=>$subarray['nameplate'], ':disco'=>$subarray['etapa']));
+                $orden++;
+            }
+            else {
+                $stm=$this->pdo->prepare("INSERT INTO programador (orden, suministrado_disco, suministrado_alabe, nameplate, disco_piezas_id_pieza, alabe_piezas_id_pieza, tipos_motor_id_tipo) VALUES($orden, 0, 0, :nameplate, :disco, :alabe, :tipo)");
+                $alabeid=(int)$subarray['etapa']+45;
+                $stm->execute(array(':nameplate'=>$subarray['nameplate'], ':disco'=>$subarray['etapa'], ':alabe'=>$alabeid, ':tipo' => $subarray['tipo_motor']));
+                $orden++;
+            }
+		}
+
+
+		
 	}
 	
 

@@ -142,7 +142,6 @@ function getBufferAlabes(){
 		.done(
 			function(data){
 				var num = data.length;
-				console.log(data);
 				var $contadorcurvicos=0;
 				var $contador=0;
 

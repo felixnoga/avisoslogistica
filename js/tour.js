@@ -51,10 +51,17 @@ $(document).ready(function(){
     autoscroll: false
   },
       {
-    element: ".subir-faltantes",
+    element: ".subir-faltantes:first",
     title: "Subir archivo excel de faltantes",
     content: "Este formulario nos permite seleccionar el archivo excel (archivos *.xls o *.xlsx) de faltantes y subirlo para que la aplicación ponga automáticamente como faltantes las piezas (icono <i class=\"fa fa-exclamation-circle\"></i>).<br>La aplicación pone todos las piezas como NO FALTANTES para posteriormente leer el archivo, buscar discos y álabes y poner como FALTANTES las que en él se encuentran. Todas las piezas que no se encuentren en el archivo, se considerarán como NO FALTANTES.<br><br> <strong>NOTA IMPORTANTE:</strong> el archivo de faltantes de T700, al ser diferente al resto de motores, debe contener en su nombre la cadena de caracteres \"T700\", da igual donde se encuentre (se puede encontrar en medio de otros caracteres) o si es en mayúsculas o minúsculas. Ejemplos válidos: faltantest700.xls, T700_faltantes.xls, 190102_faltantest700_almacen.xls...<br>El archivo que se suba para el resto de motores, puede contener cualquier nombre pero NO la cadena \"T700\" anteriormente explicada. Esto es así para que la aplicación pueda distinguir si el archivo que se sube es para T700 o para el resto.<br>Por seguridad, la aplicación no permite subir archivos que no sean .xls o .xlsx",
     placement: "top",
+    autoscroll: false
+  },
+        {
+    element: ".fechas",
+    title: "Ultimas actualizaciones faltantes",
+    content: "Se indican las fechas en las que se subieron archivos excel de faltantes por última vez. Así se puede llevar un control actualizado.",
+    placement: "right",
     autoscroll: false
   },
     {
